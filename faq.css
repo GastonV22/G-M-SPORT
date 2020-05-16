@@ -1,0 +1,28 @@
+body {
+    color:#878787;
+    background-color: whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+    text-align: left;
+}
+nav ul{
+    list-style-type: none;
+    overflow: hidden; 
+    
+}
+nav ul li{
+    float: center;
+    width: 95%;
+    margin: 50px 0;
+    color: #878787;
+   }
+.card-header{
+    background-color: whitesmoke;
+    text-align: left;
+}
+.btn-link{
+    background-color: whitesmoke;
+    margin-bottom: 30px;
+    color: #d32128;
+    text-align: left;
+   }
+   

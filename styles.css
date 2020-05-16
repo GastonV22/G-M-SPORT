@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgba(238, 236, 236, 0.8);
+}
+header{
+    max-width: 1000px;
+    min-height: 130px;
+    margin: 0 auto;
+    border-radius: 20px 20px 0 0;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
+background: #c5deea; /* Old browsers */
+background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-9 */
+
+}
+#logo{
+    width: 150px;
+    margin-top: 1%;
+    margin-left: 50px;
+    animation: 1s tocarlogo 1;
+}
+img{
+    margin-top: 10px;
+}
+
+
+/*MENU HORIZONTAL*/
+#menu-horizontal{
+    max-width: 1000px;
+    min-height: 50px;
+    background: black;
+    margin: 0 auto;
+}
+#menu-horizontal ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+#menu-horizontal a{
+    color: #fff;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    background: black;
+    font-family: arial;
+    font-size: 18px;
+}
+#menu-horizontal a:hover{
+    background: blue;
+}
+#menu-horizontal ul ul{
+    display: none;
+    position: absolute;
+}
+#menu-horizontal ul li:hover ul{
+    display: block;
+}
+
+#banner{
+    max-width: 1000px;
+    min-height: 250px;
+    background: #fff;
+    margin: 0 auto;
+}
+#contenedor{
+    max-width: 1000px;
+    min-height: 700px;
+    background: rgba(238, 236, 236, 0.8);
+    margin: 0 auto;
+}
+
+/*MENU VERTICAL*/
+#menu-vertical{
+    width: 300px;
+    min-height: 700px;
+    background: #ccc;
+    float: left;
+}
+#menu-vertical ul{
+    list-style: none;
+    padding: 10px;
+}
+#menu-vertical a{
+    display: block;
+    color: white;
+    background: black;
+    padding: 10px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-family: arial;
+    font-size: 18px;
+}
+#menu-vertical a:hover{
+    background: blue;
+}
+
+#contenido{
+    width: 700px;
+    min-height: 700px;
+    background: white;
+    float: right;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#contenido h2{
+    text-align: center;
+}
+#contenido img{
+    padding: 1px;
+    width: 150px;
+    border-radius: 10px 10px 10px 10px;
+   }
+#contenido p{
+    text-align: justify;
+    font-family: arial;
+
+}
+footer{
+    max-width: 1000px;
+    min-height: 130px;
+    background: black;
+    margin: 0 auto;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+a img{
+    text-decoration: none;
+    padding: 20px;
+    
+}
+@media(min-width: 768px)
+{
+    
+}
+
+/*keyframes*/
+@keyframes tocarlogo {
+    0%{
+        transform: translateY(-200px)
+    }
+}
