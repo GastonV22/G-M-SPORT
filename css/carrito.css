@@ -1,0 +1,323 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: rgb(185, 182, 182);
+    background-size: cover;
+    text-align: center;
+    padding: 0px;
+}
+*{
+    box-sizing: border-box;
+   
+}
+header{
+    max-width: 100%;
+    min-height: 130px;
+    margin: 10px;
+    border-radius: 20px 20px 0 0;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
+background: #c5deea; /* Old browsers */
+background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-9 */
+
+}
+#logo{
+    width: 150px;
+    margin-top: 1%;
+    margin-left: 50px;
+    animation: 1s tocarlogo 1;
+}
+img{
+    margin-top: 10px;
+}
+
+
+#menu-horizontal{
+    max-width: 100%;
+    min-height: 50px;
+    background: black;
+    margin: 10px    ;
+}
+#menu-horizontal ul{
+ 
+   list-style: none;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 0;
+    
+}
+#menu-horizontal a{
+    color: #fff;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    background: black;
+    font-family: arial;
+    font-size: 18px;
+}
+#menu-horizontal a:hover{
+    background: blue;
+}
+#menu-horizontal ul ul {
+    display:none;
+    position: absolute;
+}
+#menu-horizontal ul li:hover ul{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#banner{
+    max-width: 50%;
+    min-height: 250px;
+    background: #fff;
+    margin: 0 auto;
+}
+#contenedor{
+    max-width: 50%;
+    min-height: 700px;
+    background: rgba(238, 236, 236, 0.8);
+    margin: 0 auto;
+}
+
+.contenedor{
+    width: 100%;
+    padding:10px;
+   
+}
+.formulario{
+    margin:150px;
+    background: white;
+    padding: 3px;
+    display: inline-block;
+}
+h1{
+    text-align:center;
+    color: #1a2537;
+    font-size: 40px;
+    width: auto;
+}
+
+input[type="text"],
+input[type="password"]{
+    
+    font-size: 100%;
+    
+    padding: 20px;
+    border: none;
+}
+.input-contenedor{
+    margin-bottom: 15px;    
+    border: 1px solid #aaa
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+.button{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background: cadetblue;
+}
+p{
+    text-align: center;
+}
+.link{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
+}
+.link:hover{
+    color:cadetblue;
+}
+
+footer{
+    max-width: 100%;
+    min-height: 130px;
+    background: black;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+a img{
+    text-decoration: none;
+    padding: 20px;
+}
+@media(max-width: 768px)
+{
+    .formulario{
+        margin: 10%;
+        width:auto;
+        margin-top: 150px;
+    }
+    #menu-horizontal ul {
+        max-width: 100%;
+        display: inline-flex;
+      
+    }
+}
+@media (max-width: 570px){
+    #menu-horizontal ul {
+        display: inline-block ;
+        max-width: 100%;
+    }
+    
+
+    #menu-horizontal ul ul {
+    display: none;
+    background: cornsilk;}
+ 
+}
+.shopping-cart{
+	padding-bottom: 50px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.shopping-cart.dark{
+	background-color: #f6f6f6;
+}
+
+.shopping-cart .content{
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	background-color: white;
+}
+
+.shopping-cart .block-heading{
+    padding-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.shopping-cart .block-heading p{
+	text-align: center;
+	max-width: 420px;
+	margin: auto;
+	opacity:0.7;
+}
+
+.shopping-cart .dark .block-heading p{
+	opacity:0.8;
+}
+
+.shopping-cart .block-heading h1,
+.shopping-cart .block-heading h2,
+.shopping-cart .block-heading h3 {
+	margin-bottom:1.2rem;
+	color: #3b99e0;
+}
+
+.shopping-cart .items{
+	margin: auto;
+}
+
+.shopping-cart .items .product{
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.shopping-cart .items .product .info{
+	padding-top: 0px;
+	text-align: center;
+}
+
+.shopping-cart .items .product .info .product-name{
+	font-weight: 600;
+}
+
+.shopping-cart .items .product .info .product-name .product-info{
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.shopping-cart .items .product .info .product-name .product-info .value{
+	font-weight: 400;
+}
+
+.shopping-cart .items .product .info .quantity .quantity-input{
+    margin: auto;
+    width: 80px;
+}
+
+.shopping-cart .items .product .info .price{
+	margin-top: 15px;
+    font-weight: bold;
+    font-size: 22px;
+ }
+
+.shopping-cart .summary{
+	border-top: 2px solid #5ea4f3;
+    background-color: #f7fbff;
+    height: 100%;
+    padding: 30px;
+}
+
+.shopping-cart .summary h3{
+	text-align: center;
+	font-size: 1.3em;
+	font-weight: 600;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.shopping-cart .summary .summary-item:not(:last-of-type){
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shopping-cart .summary .text{
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.shopping-cart .summary .price{
+	font-size: 1em;
+	float: right;
+}
+
+.shopping-cart .summary button{
+	margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+	.shopping-cart .items .product .info {
+		padding-top: 25px;
+		text-align: left; 
+	}
+
+	.shopping-cart .items .product .info .price {
+		font-weight: bold;
+		font-size: 22px;
+		top: 17px; 
+	}
+
+	.shopping-cart .items .product .info .quantity {
+		text-align: center; 
+	}
+	.shopping-cart .items .product .info .quantity .quantity-input {
+		padding: 4px 10px;
+		text-align: center; 
+	}
+
+	.resume{
+		padding-top: 50px;
+		padding-right: 35px;
+
+	}
+}
