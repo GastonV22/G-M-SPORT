@@ -1,13 +1,70 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background: rgb(185, 182, 182);
-    background-size: cover;
-    text-align: center;
+    background-image: beige;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    margin:0;
+    
 }
-*{
-    box-sizing: border-box;
+header{
+    width: 100%;    
+    background: #066dab ;
+}
+#btn-menu{
+    display:none;
+    
    
+}
+#logomenu{
+    width: 30px;
+    height: 30px;
+}
+header label{
+    display:none;
+    width: 30px;
+   
+    
+   
+}
+
+header label:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3)
+}
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: black ;
+    
+
+    
+}
+.menu li :hover {
+    background-color: rgba(255, 253, 253, 0.3)  ;
+}
+.menu li{
+    flex-grow: 1;
+    border-right: 1px solid #fff ;
+     padding:  15px;
+}
+
+
+.menu li a {    
+    display: block;
+    padding: 15px 20 px;
+    color:#fff;
+    text-decoration: none;
+}
+#logo{
+    width: 150px;
+    margin-top: 1%;
+    margin-left: 50px;
+    animation: 1s tocarlogo 1;
+}
+img{
+    margin-top: 10px;
 }
 
 
@@ -19,7 +76,7 @@ body{
    
 }
 .formulario{
-    margin-top: 150px;
+    margin: 18%;
     background: white;
     padding: 3%;
 }
@@ -69,38 +126,55 @@ p{
 .link:hover{
     color:cadetblue;
 }
-@media(min-width: 768px)
-
-{
-    .formulario{
-        margin: auto;
-        width: 500px;
-        margin-top: 150px;
-    }
-}
-@media(min-width: 570px)
-{
-    .formulario{
-        margin: auto;
-        width: 500px;
-        margin-top: 150px;
-    }
-}
-@media (min-width:320px)
-{
-    .formulario{
-        margin: auto;
-        width: 500px;
-        margin-top: 150px;
-    }
-}
 
 footer{
-    width: 37.21%;
-    height: 90px;
+    max-width: 100%;
+    min-height: 130px;
     background: black;
     margin: 0 auto;
     border-radius: 0 0 20px 20px;
     text-align: center;
-   
+}
+
+a img{
+    text-decoration: none;
+    padding: 20px;
+    
+}
+@media(max-width:768px){
+    header label{
+        display: block ;
+    }
+    .menu{ 
+        position: absolute;
+        width:70% ;
+        margin-left: -70% ;
+        transition: all 0.5s;
+       
+
+    }
+    .menu ul{
+        flex-direction:column ;
+     
+    }
+    .menu li{
+        border-top:  1px solid #fff
+
+    }
+
+    #btn-menu:checked ~ .menu{
+     
+        margin: 0;
+
+
+    }
+
+}
+
+@media(max-width:480px){
+    header{  width: 100%}
+    form{width: 100% }
+    .formulario {
+        margin: 20px;
+    }
 }

@@ -1,28 +1,61 @@
-
 body{
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background: rgb(185, 182, 182);
-    background-size: cover;
-    text-align: center;
-    padding: 0px;
-}
-*{
-    box-sizing: border-box;
-   
+    background-image: beige;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    margin:0;
+    
 }
 header{
-    max-width: 100%;
-    min-height: 130px;
-    margin: 10px;
-    border-radius: 20px 20px 0 0;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
-background: #c5deea; /* Old browsers */
-background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-9 */
+    width: 100%;    
+    background: #066dab ;
+}
+#btn-menu{
+    display:none;
+    
+   
+}
+#logomenu{
+    width: 30px;
+    height: 30px;
+}
+header label{
+    display:none;
+    width: 30px;
+   
+    
+   
+}
 
+header label:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3)
+}
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: black ;
+    
+
+    
+}
+.menu li :hover {
+    background-color: rgba(255, 253, 253, 0.3)  ;
+}
+.menu li{
+    flex-grow: 1;
+    border-right: 1px solid #fff ;
+     padding:  15px;
+}
+
+
+.menu li a {    
+    display: block;
+    padding: 15px 20 px;
+    color:#fff;
+    text-decoration: none;
 }
 #logo{
     width: 150px;
@@ -32,44 +65,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', end
 }
 img{
     margin-top: 10px;
-}
-
-
-#menu-horizontal{
-    max-width: 100%;
-    min-height: 50px;
-    background: black;
-    margin: 10px    ;
-}
-#menu-horizontal ul{
- 
-   list-style: none;
-    display: inline-flex;
-    justify-content: space-around;
-    padding: 0;
-    
-}
-#menu-horizontal a{
-    color: #fff;
-    display: block;
-    padding: 20px;
-    text-decoration: none;
-    background: black;
-    font-family: arial;
-    font-size: 18px;
-}
-#menu-horizontal a:hover{
-    background: blue;
-}
-#menu-horizontal ul ul {
-    display:none;
-    position: absolute;
-}
-#menu-horizontal ul li:hover ul{
-    display: block;
-    margin: 0px;
-    padding: 0px;
-
 }
 
 #banner{
@@ -159,169 +154,38 @@ a img{
     text-decoration: none;
     padding: 20px;
 }
-@media(max-width: 768px)
-{
-    .formulario{
-        margin: 10%;
-        width:auto;
-        margin-top: 150px;
+@media(max-width:768px){
+    header label{
+        display: block ;
     }
-    #menu-horizontal ul {
-        max-width: 100%;
-        display: inline-flex;
-      
+    .menu{ 
+        position: absolute;
+        width:70% ;
+        margin-left: -70% ;
+        transition: all 0.5s;
+       
+
+    }
+    .menu ul{
+        flex-direction:column ;
+     
+    }
+    .menu li{
+        border-top:  1px solid #fff
+
+    }
+
+    #btn-menu:checked ~ .menu{
+     
+        margin: 0;
+
+
+    }
+    main{
+        padding-top: 400px;
     }
 }
-@media (max-width: 570px){
-    #menu-horizontal ul {
-        display: inline-block ;
-        max-width: 100%;
-    }
-    
-
-    #menu-horizontal ul ul {
-    display: none;
-    background: cornsilk;}
- 
+@media(max-width:480px){
+    header{  width: 100%}
+    form{width: 100% }
 }
-.shopping-cart{
-	padding-bottom: 50px;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.shopping-cart.dark{
-	background-color: #f6f6f6;
-}
-
-.shopping-cart .content{
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-	background-color: white;
-}
-
-.shopping-cart .block-heading{
-    padding-top: 50px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.shopping-cart .block-heading p{
-	text-align: center;
-	max-width: 420px;
-	margin: auto;
-	opacity:0.7;
-}
-
-.shopping-cart .dark .block-heading p{
-	opacity:0.8;
-}
-
-.shopping-cart .block-heading h1,
-.shopping-cart .block-heading h2,
-.shopping-cart .block-heading h3 {
-	margin-bottom:1.2rem;
-	color: #3b99e0;
-}
-
-.shopping-cart .items{
-	margin: auto;
-}
-
-.shopping-cart .items .product{
-	margin-bottom: 20px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.shopping-cart .items .product .info{
-	padding-top: 0px;
-	text-align: center;
-}
-
-.shopping-cart .items .product .info .product-name{
-	font-weight: 600;
-}
-
-.shopping-cart .items .product .info .product-name .product-info{
-	font-size: 14px;
-	margin-top: 15px;
-}
-
-.shopping-cart .items .product .info .product-name .product-info .value{
-	font-weight: 400;
-}
-
-.shopping-cart .items .product .info .quantity .quantity-input{
-    margin: auto;
-    width: 80px;
-}
-
-.shopping-cart .items .product .info .price{
-	margin-top: 15px;
-    font-weight: bold;
-    font-size: 22px;
- }
-
-.shopping-cart .summary{
-	border-top: 2px solid #5ea4f3;
-    background-color: #f7fbff;
-    height: 100%;
-    padding: 30px;
-}
-
-.shopping-cart .summary h3{
-	text-align: center;
-	font-size: 1.3em;
-	font-weight: 600;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.shopping-cart .summary .summary-item:not(:last-of-type){
-	padding-bottom: 10px;
-	padding-top: 10px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.shopping-cart .summary .text{
-	font-size: 1em;
-	font-weight: 600;
-}
-
-.shopping-cart .summary .price{
-	font-size: 1em;
-	float: right;
-}
-
-.shopping-cart .summary button{
-	margin-top: 20px;
-}
-
-@media (min-width: 768px) {
-	.shopping-cart .items .product .info {
-		padding-top: 25px;
-		text-align: left; 
-	}
-
-	.shopping-cart .items .product .info .price {
-		font-weight: bold;
-		font-size: 22px;
-		top: 17px; 
-	}
-
-	.shopping-cart .items .product .info .quantity {
-		text-align: center; 
-	}
-	.shopping-cart .items .product .info .quantity .quantity-input {
-		padding: 4px 10px;
-		text-align: center; 
-	}
-
-	.resume{
-		padding-top: 50px;
-		padding-right: 35px;
-
-	}
-}
-
-
-

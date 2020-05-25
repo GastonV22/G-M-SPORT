@@ -69,57 +69,23 @@ img{
 
 
 
-
-
-form{
-    width: 450px;
-    margin: auto;
-    background: rgba(0,0,0,0.4);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    margin-top: 20px;
-    border-radius: 7px;
-    }
-
-h2{
-        color:white;
-        text-align: center;
-        margin: 0;
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-input{
-width: 100%;
-margin-bottom: 20px;
-padding: 7px;
-box-sizing: border-box;
-font-size:17px;
-border:none;
-
+#banner{
+    max-width: 50%;
+    min-height: 250px;
+    background: #fff;
+    margin: 0 auto;
+}
+#contenedor{
+    max-width: 50%;
+    min-height: 700px;
+    background: rgba(238, 236, 236, 0.8);
+    margin: 0 auto;
 }
 
-textarea{
+.contenedor{
     width: 100%;
-margin-bottom: 20px;
-padding: 7px;
-box-sizing: border-box;
-font-size:17px;
-border:none;
-min-height: 100px;
-max-height: 200px;
-max-width: 100%;
-
-}
-
-#enviar :hover{
-    background: grey;
-    color: white;
-    padding:20px ;
-
-}
-main{ 
-    padding: 20px;
+    padding:10px;
+   
 }
 .formulario{
     margin:150px;
@@ -176,60 +142,71 @@ p{
     color:cadetblue;
 }
 
+
+
+form{
+    width: 450px;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+    }
+
+h2{
+        color:white;
+        text-align: center;
+        margin: 0;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+input{
+width: 100%;
+margin-bottom: 20px;
+padding: 7px;
+box-sizing: border-box;
+font-size:17px;
+border:none;
+
+}
+
+textarea{
+    width: 100%;
+margin-bottom: 20px;
+padding: 7px;
+box-sizing: border-box;
+font-size:17px;
+border:none;
+min-height: 100px;
+max-height: 200px;
+max-width: 100%;
+
+}
+
+#enviar :hover{
+    background: grey;
+    color: white;
+    padding:20px ;
+
+}
+main{ 
+    padding: 20px;
+}
 footer{
     max-width: 100%;
     min-height: 130px;
     background: black;
     margin: 0 auto;
-    margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 0 0 20px 20px;
     text-align: center;
 }
 
 a img{
     text-decoration: none;
     padding: 20px;
-}
-body {
-    color:#878787;
-    background-color: whitesmoke;
-    font-family: Georgia, 'Times New Roman', Times, serif;  
-    text-align: left;
-}
-
-.btn-link{
-    background-color: whitesmoke;
-    margin-bottom: 30px;
-    color: #d32128;
-    text-align: left;
-   }
-   @media(max-width:768px){
-    header label{
-        display: block ;
-    }
-    .menu{ 
-        position: absolute;
-        width:70% ;
-        margin-left: -70% ;
-        transition: all 0.5s;
-       
-
-    }
-    .menu ul{
-        flex-direction:column ;
-     
-    }
-    .menu li{
-        border-top:  1px solid #fff
-
-    }
-
-    #btn-menu:checked ~ .menu{
-     
-        margin: 0;
-
-
-    }
+    
 }
 @media(max-width:768px){
     header label{
@@ -258,12 +235,7 @@ body {
 
 
     }
-    main{
-        padding-top: 400px;
-    }
 }
-}
-
 @media(max-width:480px){
     header{  width: 100%}
     form{width: 100% }
