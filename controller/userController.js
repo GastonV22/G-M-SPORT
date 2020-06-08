@@ -66,7 +66,7 @@ createProductoadd : function (req,res, next){
         image: req.body.image
 }
 
-res.redirect('/productoadd')
+res.redirect('/productoadd')  
 },
 search:function(req,res,next){
 
