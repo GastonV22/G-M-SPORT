@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <title>G M SPORTS</title>
+    <link rel="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="../public/css/registro.css">
+    <script src="https://kit.fontawesome.com/ed7192d074.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        
+        <%- include('partials/header.ejs') %>
+                
+        <main>
+            <h1>user list</h1>
+            <ul> <% for (let i=0; i <user.length;i++) { %>
+                <li>
+                    <a href="user/datail/<%= user[i].id%>"> <% user[i].name %></a>
+                </li>
+
+            <% } %>
+
+            <h2>Search</h2>
+            <form action="/uesr/search" method="GET">
+            <input type="text" name='query'>
+            <input type="sumit" name="search" id="">
+        </form>
+            
+        
+            
+            </ul>
+            </main>
+
+            <%- include('partials/footer.ejs') %>

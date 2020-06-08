@@ -1,0 +1,41 @@
+[{
+    "id": 1,
+    "first_name": "Marijn",
+    "apellido": "O'Rowane",
+    "correo electrónico": "morowane0@so-net.ne.jp",
+    "contraseña": "inIn4KutItg",
+    "category": "usuario",
+    "image": "user_1.jpg"
+  }, {
+    "id": 2,
+    "first_name": "Sloan",
+    "last_name": "Veltman",
+    "correo electrónico": "sveltman1@xrea.com",
+    "contraseña": "FKa42hNhGbf",
+    "category": "usuario",
+    "image": "user_2.jpg"
+  }, {
+    "id": 3,
+    "first_name": "Muffin",
+    "last_name": "Cumberbatch",
+    "correo electrónico": "mcumberbatch2@hao123.com",
+    "contraseña": "80YDJ04Zb",
+    "category": "usuario",
+    "image": "user_3.jpg"
+  }, {
+    "id": 4,
+    "first_name": "Loree",
+    "last_name": "Amaya",
+    "correo electrónico": "lamaya3@netvibes.com",
+    "contraseña": "pOq5xjCbwco",
+    "category": "usuario",
+    "image": "user_4.jpg"
+  }, {
+    "id": 5,
+    "first_name": "Bentley",
+    "last_name": "MacDougal",
+    "correo electrónico": "bmacdougal4@dailymail.co.uk",
+    "contraseña": "lCtrmye6wudw",
+    "category": "usuario",
+    "image": "user_5.jpg"
+  }]
