@@ -11,7 +11,7 @@ router.post('/register',userController.create);
 
 router.get('/carito',userController.carrito);
 
-router.get('/detalle',userController.detalle);
+router.get('/:id',userController.id);
 
 router.get('/error',userController.error);
 
@@ -23,11 +23,16 @@ router.get('/login',userController.login);
 
 router.get('/productoadd',userController.productoadd);
 
+router.get('/listProducts',userController.listProducts);
+
 router.post('/productoadd',userController.createProductoadd);
 
-router.get('/list',userController.list)
+router.get('//:idProducts',userController.edit)
+
+ router.put('/productsEdit',userController.productsEdit)
 
 router.get('/search',userController.search)
+
 
 
 module.exports = router;

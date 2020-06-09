@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <title>G M SPORTS</title>
+    <link rel="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="../public/css/registro.css">
+    <script src="https://kit.fontawesome.com/ed7192d074.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        
+        <%- include('partials/header.ejs') %>
+                
+        <main>
+        <form class="formulario">
+
+        <h1>Editar producto <%= productsToEdit.name%></h1>
+        <form method="post" action="/productadd/edit?_method=put">
+        <div class="contenedor">
+            <div class="input-contenedor"></div>
+            <i class="fas fa-user icon"></i>
+            <input type="text" placeholder="firstName" value="<%= productsToEdit.name%>">
+            <input type="submit" value="Editar" name="" id="">
+            <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
+            <p>¿Ya tienes cuenta? <a class="link" href="login.html">Iniciar Sesión</a></p>
+            <p>¿Deseas volver al inicio? <a class= "link" href="index.html">Volver al Home</a></p>
+        </div>
+    </form>
+</main>
+
+
+<%- include('partials/footer.ejs') %>
+</body>

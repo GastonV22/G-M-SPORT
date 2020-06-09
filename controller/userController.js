@@ -6,11 +6,24 @@ let userController={
     'carrito': function(req,res, next){
         res.render('carrito')
     },
-    'detalle': function(req,res, next){
-        res.render('detalle')
+    ':id': function(req,res, next){
+        res.render(':id')
     },
     'error': function(req,res, next){
         res.render('error')
+    },
+    edit: function(req,res,next){
+        let idProducts= req.params.idProducts;
+        let productoadd=[
+            {id:1,},
+            {id:2,}, 
+            {id:3,},
+            {id:4,},
+            {id:5,},
+        ] 
+        let productsToEdit = producto[idProducts];
+
+    res.render('productsEdit', {productsToEdit:productsToEdit})
     },
     'faq': function(req,res, next){
         res.render('faq')
@@ -27,16 +40,16 @@ let userController={
         res.render('login')
     },
 
-    'list':function (req,re,next){
+    'listProducts':function (req,re,next){
 
-    let users=[
+    let productoadd=[
         {id:1,},
         {id:2,}, 
         {id:3,},
         {id:4,},
         {id:5,},
     ]
-    res.render('userlist',{'users':users});
+    res.render('productoadd',{'productoadd':productoadd});
 },
     
 create: function (req,res, next){
@@ -63,10 +76,10 @@ createProductoadd : function (req,res, next){
         deporte: req.body.deporte,
         genero: req.body.genero,
         precio: req.body.precio,
-        image: req.body.image
+        image: req.body.image   
 }
 
-res.redirect('/productoadd')  
+res.redirect('/listProducts')  
 },
 search:function(req,res,next){
 
