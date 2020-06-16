@@ -35,4 +35,5 @@ router.get('/error',controllerIndex.error);
 
 router.get('/faq',controllerIndex.faq);
 
-module.exports = router
+module.exports = router;
+
