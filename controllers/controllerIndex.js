@@ -23,21 +23,22 @@ let controllerIndex={
         ] 
         let productsToEdit = producto[idProducts];
 
-    res.render('productsEdit', {productsToEdit:productsToEdit})
-    ;next();
+    res.render('productsEdit', {productsToEdit:productsToEdit});
+  
+    next();
     },
     faq: function(req,res, next){
         res.render('faq') 
         ;next();
     },
-    index: function(req,res, next){
+    home: function(req,res, next){
         res.render('index')
         ;next();
 
     },
     productoadd: function(req,res, next){
         
-        res.render('productoad')
+        res.render('productoadd')
         ;next();
     },
    
@@ -54,9 +55,9 @@ let controllerIndex={
     ;next();
     },
     
+    delete:function(req,res, next){},
 
-
-createProductoadd : function (req,res, next){
+ createProductoadd : function (req,res, next){
         
     let producto = {
         producto: req.body.producto,
@@ -65,18 +66,18 @@ createProductoadd : function (req,res, next){
         genero: req.body.genero,
         precio: req.body.precio,
         image: req.body.image   
-}
+          }
 
-res.redirect('/listProducts') 
-;next(); 
+      res.redirect('/listProducts') 
+     ;next(); 
 }
 
 
 
 //guardarla
     
-       
 }
+
 
 
 module.exports= controllerIndex;
