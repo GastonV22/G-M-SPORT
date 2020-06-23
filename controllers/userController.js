@@ -1,17 +1,18 @@
 let userController={
-    register: function(req,res, next){
-        res.render('regiter')    
+   
+    register: function(req,res,next){
+        res.render('register')    
     },
 
   
 
-    login: function(req,res, next){
+    login: function(req,res,next){
         res.render('login')
     },
 
+  
     
-    
-create: function (req,res, next){
+create: function (req,res,next){
         
         let usuario = {
             firstName: req.body.firstName,
@@ -28,7 +29,7 @@ create: function (req,res, next){
 },
 
 
-search:function(req,res,next){
+'search':function(req,res,next){
 
     let loQueBuscoElUsuario= req.query.query;
     let users=[
