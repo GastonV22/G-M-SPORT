@@ -1,3 +1,5 @@
+const fs = require("fs")
+
 let userController={
    
     register: function(req,res,next){
@@ -12,20 +14,34 @@ let userController={
 
   
     
-create: function (req,res,next){
+createUser: function (req,res,next){
         
         let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password,
-            category: req.body.category,
             image: req.body.image
     }
+ /* let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
+    let usuarios;
+    if(archivoUser== "") {
+         usuarios=[]; 
+    }else{
+         usuarios= JSON.parse(archivoUser);
+         }
+         console.log('estoy aca');
+         usuarios.push(usuario)
+    //guardarla
+    let userJson = JSON.stringify(usuarios);*/
 
+    
 //guardarla
+let userJson = JSON.stringify(usuario);
 
-    res.redirect('user/list')
+fs.appendFileSync('data/user.JSON',userJson)
+    
+res.redirect('/')
 },
 
 

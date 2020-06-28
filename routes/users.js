@@ -8,7 +8,7 @@ const path = require("path");
 
 router.get('/register',userController.register);
 
-router.post('/register',userController.create);
+router.post('/register',userController.createUser);
 
 router.get('/login',userController.login);
 
