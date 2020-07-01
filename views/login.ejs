@@ -11,7 +11,8 @@
 <body>
   <%- include('partials/header.ejs') %>
         <main>
-        <form  method="post" class="formulario">
+          <form method="POST" action="/user/login" class="formulario">
+
 
         <h1>Login</h1>
         <div class="contenedor">
@@ -25,8 +26,8 @@
             <br>
             <input type="submit" value="Login" class="button">
             <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
-            <p>¿No tienes cuenta? <a class="link" href="user/register.ejs">Regístrate</a></p>
-            <p>¿Deseas volver al inicio? <a class= "link" href="index.ejs">Volver al Home</a></p>
+            <p>¿No tienes cuenta? <a class="link" href="/user/register">Regístrate</a></p>
+            <p>¿Deseas volver al inicio? <a class= "link" href="/">Volver al Home</a></p>
         </div>
     </form>
 </main>

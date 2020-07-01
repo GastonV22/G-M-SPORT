@@ -1,4 +1,5 @@
 const fs = require("fs")
+const bcrypt = require ( 'bcrypt' ) ;  
 
 let userController={
    
@@ -12,34 +13,53 @@ let userController={
         res.render('login')
     },
 
-  
+  processLogin:function (req,res) {
+      let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
+  let usuarios;
+  if(archivoUser== "") {
+       usuarios=[]; 
+      
+  }else{
+      usuarios = JSON.parse(archivoUser)
+
+              }
+              for (let i = 0; i < usuarios.length; i++) {
+                  if( req.body.email==usuarios[i].email &&  bcrypt.compareSync(req.body.password, usuarios[i].password)){
+                      res.send("login correcto")
+                  }
+                  
+              }
+              res.render('login')
+  },
     
+  userList:function(req,res){},
+
 createUser: function (req,res,next){
         
         let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: req.body.password,
-            image: req.body.image
-    }
- /* let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
+            password:  bcrypt.hashSync(req.body.password, 10),
+            avatar: req.files[0].filename
+        }
+  let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
     let usuarios;
     if(archivoUser== "") {
          usuarios=[]; 
+        
     }else{
-         usuarios= JSON.parse(archivoUser);
-         }
-         console.log('estoy aca');
-         usuarios.push(usuario)
+        usuarios = JSON.parse(archivoUser)
+
+                }
+
+               usuarios.push(usuario)
+         
     //guardarla
-    let userJson = JSON.stringify(usuarios);*/
+   
+let userJson = JSON.stringify(usuarios);
 
-    
-//guardarla
-let userJson = JSON.stringify(usuario);
-
-fs.appendFileSync('data/user.JSON',userJson)
+fs.writeFileSync('data/user.JSON',userJson)
     
 res.redirect('/')
 },
@@ -64,6 +84,7 @@ for (let i =0;i <user.length;i ++){
 }
  res.render('userResults',{userResults:userResults})  
 },
+
 
 
 //guardarla

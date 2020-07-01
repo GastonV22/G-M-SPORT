@@ -13,10 +13,10 @@
         <%- include('partials/header.ejs') %>
                 
         <main>
-          <form method="POST" action="/user/register" class="formulario">
+          <form method="POST" action="/user/register" class="formulario" enctype="multipart/form-data">
 
           <h1>Regístrate</h1>
-          <form >
+          
              <div class="contenedor">
             <div class="input-contenedor"></div>
             <i class="fas fa-user icon"></i>
@@ -32,6 +32,10 @@
             <div class="input-contenedor"></div>
             <i class="fas fa-key icon"></i>
             <input type="password" name="password" placeholder="password">
+
+            <div class="input-contenedor"></div>
+            <i class="fas fa-envelope icon "></i>
+            <input type="file"name="avatar" placeholder="avatar"> 
             <br>
             <input type="submit" value="Enviar" class="button">
             <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
