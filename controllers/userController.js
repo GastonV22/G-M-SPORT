@@ -1,5 +1,7 @@
 const fs = require("fs")
 const bcrypt = require ( 'bcrypt' ) ;  
+const {check, validationResult, body}= require('express-validator');
+
 
 let userController={
    
@@ -14,6 +16,14 @@ let userController={
     },
 
   processLogin:function (req,res) {
+    console.log(validationResult(req));
+
+    let errors= validationResult(req);
+
+if (errors.isEmpty()){
+
+
+
       let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
   let usuarios;
   if(archivoUser== "") {
@@ -25,11 +35,30 @@ let userController={
               }
               for (let i = 0; i < usuarios.length; i++) {
                   if( req.body.email==usuarios[i].email &&  bcrypt.compareSync(req.body.password, usuarios[i].password)){
-                      res.send("login correcto")
+                     let usuariosAlogearse = usuarios[i];
+                     break;
+
+                    res.send("login correcto")
                   }
                   
               }
-              res.render('login')
+              if(usuariosAlogearse== undefined)
+              return res.render('login',{errors:[
+                  {msg: 'credenciales inavalidas'}
+
+              ]}) 
+              req.session.usuarios= usuariosAlogearse;
+              if(req.body.remember != undefined){
+                  res.cookie ('remember',usuariosAlogearse.email,{maxAge:60000})
+              }
+
+
+              res.render('/')
+            }
+     
+  else{
+     return res.render('login',{errors: errors.errors}) 
+  }
   },
     
   userList:function(req,res){},

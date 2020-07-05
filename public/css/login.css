@@ -141,6 +141,9 @@ a img{
     padding: 20px;
     
 }
+#remember{
+    margin-left:20px
+}
 @media(max-width:768px){
     header label{
         display: block ;

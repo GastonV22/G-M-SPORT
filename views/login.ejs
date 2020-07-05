@@ -11,6 +11,18 @@
 <body>
   <%- include('partials/header.ejs') %>
         <main>
+          <%if( typeof errors !='undefined') {%>
+            <p  style="color:red"> Error debe completar los campos </p>
+            <ul>
+              <% for (let i= 0;i<errors.length; i ++) {%>
+                <li>
+                  <% errors[i].msg%>
+                </li>
+
+              <%}%>
+            </ul>
+
+          <%}%>
           <form method="POST" action="/user/login" class="formulario">
 
 
@@ -18,13 +30,15 @@
         <div class="contenedor">
             <div class="input-contenedor"></div>
             <i class="fas fa-envelope icon"></i>
-            <input type="text" placeholder="Correo Electrónico">
+            <input type="text" name="email" placeholder="email">
       
             <div class="input-contenedor"></div>
             <i class="fas fa-key icon"></i>
-            <input type="password" placeholder="Contraseña">
+            <input type="password" name="password" placeholder="password">
             <br>
             <input type="submit" value="Login" class="button">
+           
+            <input class="remember" type="checkbox" value="remember" class="button" ><label for="">Recordame</label>
             <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
             <p>¿No tienes cuenta? <a class="link" href="/user/register">Regístrate</a></p>
             <p>¿Deseas volver al inicio? <a class= "link" href="/">Volver al Home</a></p>

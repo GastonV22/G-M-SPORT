@@ -11,6 +11,8 @@ var productRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+var rememberMiddleware = require ('./middlewares/rememberMiddleware')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -23,7 +25,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 //use los method put y delete en las rutas y el formulario
 app.use(methodOverride('_method'));
 //console.log ('acallegue');
-
+app.use(rememberMiddleware)
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
