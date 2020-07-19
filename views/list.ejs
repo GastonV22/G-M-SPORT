@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+    <body>
+        
+        <%- include('partials/header.ejs') %>
+                
+        <main>
+            <h1>listado de producto nuevo </h1>
+            <ul> <% for (let i=0; i < prod.length; i++) { %>
+                <li>
+                     <%=prod[i].name %>
+                </li>
+
+            <% } %>
+
+        </form>
+            
+        
+            
+            </ul>
+            </main>
+
+            <%- include('partials/footer.ejs') %>

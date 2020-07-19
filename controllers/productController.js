@@ -1,3 +1,8 @@
+const fs = require("fs")
+const bcrypt = require ( 'bcrypt' ) ;  
+const {check, validationResult, body}= require('express-validator');
+const multer = require("multer");
+
 let productcontroller={
 
     edit: function(req,res,next){
@@ -21,7 +26,7 @@ let productcontroller={
    
 
   
-    add: function(req,res, next){
+    create: function(req,res, next){
         
         res.render('create')
         ;next();
@@ -29,16 +34,12 @@ let productcontroller={
    
     list:function (req,res,next){
 
-    let productoAdd=[
-        {id:1,},
-        {id:2,}, 
-        {id:3,},
-        {id:4,},
-        {id:5,},
-    ]
-    res.render('add',{'productoAdd':productoAdd});
+    let prod=fs.readFileSync('data/prod.JSON', {encoding:'utf-8'});
+   
+    res.render('list',{'prod':prod});
     ;next();
-    },
+  
+    res.render('list')},
     
     delete:function(req,res, next){
         res.render('delete')
@@ -47,7 +48,7 @@ let productcontroller={
     search: function (req,res,next) {
         res.render('search')
     },
- create: function (req,res, next){
+ createProd: function (req,res, next){
         
     let products = {
         producto: req.body.producto,
@@ -55,9 +56,32 @@ let productcontroller={
         deporte: req.body.deporte,
         genero: req.body.genero,
         precio: req.body.precio,
-        image: req.body.image   
-          }
 
+        avatar: req.files[0].fieldname 
+       
+          
+    }
+
+    let archivoProd= fs.readFileSync('data/prod.JSON', {encoding:'utf-8'});
+    let productos;
+    if(archivoProd=== "") {
+        productos=[]; 
+        
+    }else{
+       productos = JSON.parse(archivoProd)
+
+                }
+
+               productos.push(products)
+         
+    //guardarla
+   
+let userProd= JSON.stringify(productos);
+
+fs.writeFileSync('data/prod.JSON',userProd)
+    
+
+        
       res.redirect('/products/list') 
      ;next(); 
 }

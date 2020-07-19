@@ -1,7 +1,7 @@
 const fs = require("fs")
 const bcrypt = require ( 'bcrypt' ) ;  
 const {check, validationResult, body}= require('express-validator');
-
+const multer = require("multer");
 
 let userController={
    
@@ -35,8 +35,10 @@ if (errors.isEmpty()){
               }
               for (let i = 0; i < usuarios.length; i++) {
                   if( req.body.email==usuarios[i].email &&  bcrypt.compareSync(req.body.password, usuarios[i].password)){
-                     let usuariosAlogearse = usuarios[i];
-                     break;
+                    
+                   
+                    let usuariosAlogearse = usuarios[i];
+                
 
                     res.send("login correcto")
                   }

@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
     <title>G M SPORTS</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://file.myfontastic.com/GnxE8v3D3Yk2fQp3jdDLp/icons.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/registro.css">
-    <script src="js/jquary.js"></script>
     <script src="js/scripts.js"></script>
- 
-</head>
-<body>
-    <%- include('partials/header.ejs') %>
-     
     
-        
-        <section id="banner">
-            <img src="Banner-G-M-Sport-.jpg" alt="">
-        </section>
-        <section id="contenedor">
-            <nav id="menu-vertical">
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="#">Indumentaria</a></li>
-                    <li><a href="#">Calzado</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                    <li><a href="#">Ubicanos</a></li>
-                </ul>
-            </nav>
-            <section id="contenido">
-                <h2>G M SPORT</h2>
-                <img src="img/Productos/producto1.jpg" alt="producto1">
-                <img src="img/Productos/Puma - Mujer - Zapatillas Puma Radiate Xt 2.jpg" alt="producto2">
-                <img src="img/Pelota_Capitano_Argentina.png" alt="producto3">
-               <br>
-               <p>
-                Precio $ xxx.- <br> <br>    Precio $ xxx.- <br> <br>    Precio $ xxx.-  
-               </p>
-              <br>
-                <p>
-                    Ipsum Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti rerum obcaecati deserunt in adipisci consequatur beatae aperiam excepturi repudiandae nesciunt officia, doloremque, nulla repellendus sint a tempora? Minima, veniam harum.
-                    Error aperiam obcaecati similique atque ut! Sapiente suscipit excepturi eligendi deserunt beatae labore at quisquam est deleniti repellat, eius minima placeat, ad officia tenetur dolorum, ipsam tempora inventore in repellendus!
-                    Molestiae ab modi molestias non, quo, soluta sapiente fuga dicta atque labore quia harum dolore reiciendis a accusamus necessitatibus quas animi. Nostrum cum nesciunt praesentium natus qui iste, pariatur quasi?
-                    Quibusdam suscipit laboriosam dicta ipsum necessitatibus! Aliquam, recusandae ipsum? Nostrum quasi maxime saepe iusto vitae perferendis animi velit deserunt illum, pariatur dicta consequatur sapiente eligendi quisquam. Nulla, at. Ab, praesentium?
-                    Libero ex blanditiis quo ullam aliquid reprehenderit inventore mollitia animi officiis quia! Provident unde reprehenderit doloribus? Explicabo cumque vel quia magnam minus? Dolorem beatae provident iusto expedita sequi, quibusdam pariatur?
-                    Ad necessitatibus, totam, non suscipit nulla dolores voluptatum inventore tempore dolorem eligendi obcaecati iusto itaque perferendis natus tempora deleniti maxime error! 
-                </p>
-            </section>
-        </section>
-        <%- include('partials/footer.ejs') %>
 
-        
+    </head>
+
+
+<body>  
+    <%- include('partials/header.ejs') %>
+<main>
+    <section class="banner">
+        <div class="banner__content"><h2>Las mejores zapatillas</h2></div>
+        <img src="/img/banner.jpg" alt="" class="banner__img">
+         
+    </section>
+    
+
+    <section class="group today-special"></section>
+    <h2 class="today-special__title">Nuestos productos </h2>
+    <div class="container container__flex">
+        <div class="column column--50--25">
+            <img src="/img/converse-all-star-.jpg" alt="" class="today-special__img">
+            <div class="today-special__title">CONVERSE</div>
+            <div class="today-special__price">4999</div>
+        </div>
+        <div class="column column--50--25">
+            <img src="/img/converse-all-star-.jpg" alt="" class="today-special__img">
+            <div class="today-special__title"></div>
+            <div class="today-special__price"></div>
+        </div>
+        <div class="column column--50--25">
+            <img src="/img/converse-all-star-.jpg" alt="" class="today-special__img">
+            <div class="today-special__title"></div>
+            <div class="today-special__price"></div>
+        </div>
+        <div class="column column--50--25">
+            <img src="/img/converse-all-star-.jpg" alt="" class="today-special__img">
+            <div class="today-special__title"></div>
+            <div class="today-special__price"></div>
+        </div>
+    </div>
+
+
+
+
+  
 
    
-    
-
-
-
+</main>
 </body>
+
+
+<footer><%- include('partials/footer.ejs') %> </footer> 
+
 </html>

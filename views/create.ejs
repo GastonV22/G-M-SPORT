@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Agregar producto</title> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    <%- include('partials/head.ejs') %>
   </head>
   <link rel="stylesheet" href="/css/productoadd.css">
 <body>
   <%- include('partials/header') %>
  <main>  
-  <form action="/products/create" method="post"enctype="multipart/form-data">
+  <form action="/products/create" method="POST"enctype="multipart/form-data">
      <h2>AGREGAR PRODUCTO</h2>
     <input type="text"name ="producto" placeholder="producto"> 
     <input type="text"name="marca" placeholder="marca"> 
     <input type="text"name="deporte" placeholder="deporte"> 
     <input type="text"name="genero" placeholder="genero">
     <input type="text"name="precio" placeholder="precio"> 
-    <input type="image"name="image" placeholder="image"> 
+    <div class="input-contenedor"></div>
+            <i class="fas fa-envelope icon "></i>
+            <input type="file"name="avatar" placeholder="avatar"> 
+            <br>
     <textarea name="comentario" id="comntario" cols="30" rows="10" placeholder="comntarios"></textarea>
-<input type="button"value="ENVIAR" name="enviar" id="enviar">
+    <input type="submit" value="Enviar" class="button">
 </form>
 </main>
 

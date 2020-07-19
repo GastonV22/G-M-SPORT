@@ -1,37 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 body{
-    background: rgba(238, 236, 236, 0.8);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: rgb(185, 182, 182);
+    background-size: cover;
+    text-align: center;
+}
+*{
+    box-sizing: border-box;
+   
 }
 header{
-    max-width: 1000px;
-    min-height: 130px;
-    margin: 0 auto;
-    border-radius: 20px 20px 0 0;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c5deea+0,8abbd7+31,066dab+100;Web+2.0+Blue+3D+%231 */
-background: #c5deea; /* Old browsers */
-background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 31%, #066dab 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 31%,#066dab 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5deea', endColorstr='#066dab',GradientType=0 ); /* IE6-9 */
-
+    width: 100%;    
+    background: #066dab ;
 }
+#btn-menu{
+    display:none;
+    
+   
+}
+
+#banner{
+    max-width: 100%;
+    min-height:25%;
+    background: #fff;
+    margin: 0 auto;
+}
+header label{
+    display:none;
+    width: 30px;
+    
+    
+   
+}
+
+header label:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3)
+}
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: black ;
+    
+
+    
+}
+.menu li :hover {
+    background-color: rgba(255, 253, 253, 0.3)  ;
+}
+.menu li{
+    flex-grow: 1;
+    border-right: 1px solid #fff ;
+     padding:  15px;
+}
+
+
+.menu li a {    
+    display: block;
+    padding: 15px 20 px;
+    color:#fff;
+    text-decoration: none;
+}
+
+
+.carousel-item{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0 ;
+    min-height: 300px;
+    z-index: -1;
+  }
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+  
 #logo{
     width: 150px;
     margin-top: 1%;
     margin-left: 50px;
-    animation: 1s tocarlogo 1;
+    animation: 1s tocarlogo 1s;
 }
 img{
-    margin-top: 10px;
+    display: block;
+    max-width: 100%;
 }
 
 
 /*MENU HORIZONTAL*/
 #menu-horizontal{
-    max-width: 1000px;
+    width: 100%;
     min-height: 50px;
     background: black;
     margin: 0 auto;
@@ -62,49 +125,25 @@ img{
 }
 
 #banner{
-    max-width: 1000px;
-    min-height: 250px;
+    max-width: 100%;
+    min-height:25%;
     background: #fff;
     margin: 0 auto;
 }
-#contenedor{
-    max-width: 1000px;
-    min-height: 700px;
-    background: rgba(238, 236, 236, 0.8);
-    margin: 0 auto;
-}
 
-/*MENU VERTICAL*/
-#menu-vertical{
-    width: 300px;
-    min-height: 700px;
-    background: #ccc;
-    float: left;
-}
-#menu-vertical ul{
-    list-style: none;
-    padding: 10px;
-}
-#menu-vertical a{
-    display: block;
-    color: white;
-    background: black;
-    padding: 10px;
-    text-decoration: none;
-    margin-bottom: 8px;
-    border-radius: 5px;
-    font-family: arial;
-    font-size: 18px;
-}
-#menu-vertical a:hover{
-    background: blue;
-}
+
+.info__columna {
+    background: blue;;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 30px;
+  }
 
 #contenido{
-    width: 700px;
+ 
     min-height: 700px;
     background: white;
-    float: right;
+   
     box-sizing: border-box;
     padding: 15px;
 }
@@ -122,27 +161,104 @@ img{
 
 }
 footer{
-    max-width: 1000px;
+    max-width: 100%;
     min-height: 130px;
     background: black;
     margin: 0 auto;
     border-radius: 0 0 20px 20px;
     text-align: center;
 }
-
-a img{
-    text-decoration: none;
-    padding: 20px;
-    
-}
-@media(min-width: 768px)
-{
-    
-}
-
-/*keyframes*/
-@keyframes tocarlogo {
-    0%{
-        transform: translateY(-200px)
+@media (max-width: 600px) {
+    .carousel-item {
+      height: 280px;
     }
+    .carousel-indicators{
+        display: none;
+    }
+  }
+@media(max-width:768px){
+    .carousel-indicators{
+        display: none;
+    }
+
+    header label{
+        display: block ;
+    }
+    
+   
+    .menu{ 
+        margin-top: auto;
+        position: absolute;;
+        width:70% ;
+        margin-left: -70% ;
+        transition: all 0.5s;
+        
+
+    }
+    .menu ul{
+        flex-direction:column ;
+     
+    }
+    .menu li{
+        border-top:  1px solid #fff
+
+    }
+
+    #btn-menu:checked ~ .menu{
+     
+        margin: 0;
+
+
+    }
+    #banner{
+        max-width:40%;
+        min-height:25%;
+        background: #fff;
+        margin: 0;
+    }
+    #carouselExampleInterval{
+        background-image: none;
+
+    }
+    .info {
+        display: block;
+        justify-content: space-between;
+        margin-top: 20px;
+      } 
+      .info__columna {
+        width: 100%;
+      }
+      .info__titulo {
+        font-size: 30px;
+        margin: 5px 0;
+      }
+      .section__titulo {
+        width: 100%;
+    }
+   
+}
+    
+
+@media(max-width:480px){
+    header{  width: 100%;};
+    form{width: 100%; };
+
+    .carousel-indicators{
+        display: none;
+    }
+
+    .info, .cursos {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+   
+      .info__titulo {
+        font-size: 30px;
+        margin: 5px 0;
+      }
+      .section__titulo {
+        width: 100%;
+    }
+   
 }

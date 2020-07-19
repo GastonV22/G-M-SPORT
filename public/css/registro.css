@@ -4,11 +4,13 @@ body{
     background: rgb(185, 182, 182);
     background-size: cover;
     text-align: center;
+    
 }
 *{
     box-sizing: border-box;
    
 }
+
 header{
     width: 100%;    
     background: #066dab ;
@@ -18,8 +20,63 @@ header{
     
    
 }
+.main-header--contactinfo__phone{
+    margin: 0  auto;
+    padding: 10px;
+}
+.main-header--contactinfo__adres{
+    margin: 0  auto;
+    padding: 10px;
+}
 
 
+
+#banner{
+ position: relative;
+  display: block    ;
+    background: #fff;
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+}
+.banner__img{
+    width: 100%;
+
+}
+.banner__content{
+  
+    color: black;
+    text-align: center;
+    position: relative;;
+    z-index: 500;
+    top:-50%;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    font-size: 1.8em;
+}
+.today-special.column{
+    margin-bottom: 30px;
+
+
+}
+.today-special__img{
+    display: block;
+    margin: auto;
+    max-width: 250px;
+}
+.today-special__title{
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.today-special__price{
+    text-align: center;
+    font-size: 1.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 header label{
     display:none;
     width: 30px;
@@ -67,7 +124,7 @@ header label:hover{
 img{
     margin-top: 10px;
 }
-main{ width: 450px;
+main{ width: 1005;
     margin: auto;
     background: rgba(0,0,0,0.4);
     padding: 10px 20px;
@@ -80,18 +137,21 @@ main{ width: 450px;
 
 /*cuerpo del registro*/
 .contenedor{
-    width: 100%;
+    width:100%;
 margin-bottom: 20px;
-padding: 7px;
+padding: 25%;
+padding-top:5%;
 box-sizing: border-box;
 font-size:17px;
-border:none;
+border-color: black;
+text-align: center;
    
 }
 .formulario{
-    margin-top: 20px;
+    margin: 20px;
     background: white;
-    padding: 3%;
+    padding: 5%;
+
 }
 h1{
     text-align:center;
@@ -139,6 +199,10 @@ p{
 .link:hover{
     color:cadetblue;
 }
+
+  
+   
+
 footer{
    
     max-width: 100%;
@@ -147,13 +211,15 @@ footer{
     margin: 0 auto;
     border-radius: 0 0 20px 20px;
     text-align: center;
+
 }
 @media(max-width:768px){
     header label{
         display: block ;
     }
     .menu{ 
-        position: absolute;
+        margin-top: auto;
+        position:none;
         width:70% ;
         margin-left: -70% ;
         transition: all 0.5s;
@@ -174,6 +240,16 @@ footer{
         margin: 0;
 
 
+    }
+    #banner{
+        max-width:40%;
+        min-height:25%;
+        background: #fff;
+        margin: 0;
+    }
+.column--50{
+    width: 50%;
+}   
     }
 }
 @media(max-width:480px){

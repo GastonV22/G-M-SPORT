@@ -136,10 +136,8 @@ footer{
     text-align: center;
 }
 
-a img{
-    text-decoration: none;
-    padding: 20px;
-    
+img{
+    margin-top: 10px;
 }
 #remember{
     margin-left:20px

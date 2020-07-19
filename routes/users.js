@@ -5,10 +5,13 @@ const multer = require("multer");
 const rememberMiddleware= require ('../middlewares/rememberMiddleware');
 const {check, validationResult, body}= require('express-validator');
 const fs = require ('fs');
+const path = require("path"); 
+
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'tmp/my-uploads')
+      cb(null, 'tmp/my-uploads/user')
     }, 
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -41,13 +44,13 @@ body ('email').custom(function(value){
               }
               for (let i= 0;i<usuarios.length; i ++){
                 if(usuarios[i].email== value){
-                  return false;
+                  return true;
 
                 }
               }
-              return true;
+              return false;
 
-}). withMessage('usuario logueado')
+}). withMessage('usuario no esta logueado ')
 ],userController. processLogin);
 
  
