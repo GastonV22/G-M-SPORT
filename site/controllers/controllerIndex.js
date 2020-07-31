@@ -1,6 +1,6 @@
 let controllerIndex={
     
-    home: function(req,res, next){
+    home: function(req,res, ){
         res.render('index')
         ;next();
     },
@@ -9,11 +9,11 @@ let controllerIndex={
         ;next();
     },
     
-    error: function(req,res, next ){
+    error: function(req,res,  ){
         res.render('error')
         ;next();
     },
-    faq: function(req,res, next){
+    faq: function(req,res, ){
         res.render('faq') 
         ;next();
     },

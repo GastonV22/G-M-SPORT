@@ -66,14 +66,16 @@ if (errors.isEmpty()){
   userList:function(req,res){},
 
 createUser: function (req,res,next){
-        
+    console.log ("avatar")
         let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
             password:  bcrypt.hashSync(req.body.password, 10),
-            avatar: req.files[0].filename
+          
+            avatar: req.files[0].filename 
         }
+   
   let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
     let usuarios;
     if(archivoUser== "") {

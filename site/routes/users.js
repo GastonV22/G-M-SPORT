@@ -11,14 +11,29 @@ const path = require("path");
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'tmp/my-uploads/user')
+      cb(null, 'public/imgUser')
     }, 
+    
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
   })
    
-  var upload = multer({ storage: storage })
+  var upload = multer({ storage: storage,
+  // fileFilter: (req, file, cb) => {
+  //   const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+  //   const ext = path.extname(file.originalname);
+  //   if (acceptedExtensions.includes(ext)){
+  //       //si es correcto subo la imagen
+  //       cb(null, true);
+  //   } else {
+  //       //aqui guardo la imagen en el body
+  //       req.file = file;
+  //       //le digo que no la suba
+  //       cb(null, false);
+  //   }
+  // }
+})  
 
 
 //GET users listing. 

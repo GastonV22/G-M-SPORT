@@ -56,7 +56,6 @@ let productcontroller={
         deporte: req.body.deporte,
         genero: req.body.genero,
         precio: req.body.precio,
-
         avatar: req.files[0].fieldname 
        
           

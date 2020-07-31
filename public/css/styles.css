@@ -1,14 +1,34 @@
+*{
+    box-sizing: border-box;
+   
+}
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background: rgb(185, 182, 182);
     background-size: cover;
     text-align: center;
+    
 }
-*{
-    box-sizing: border-box;
-   
+section{
+    
+    display: flex;
+    flex-wrap: wrap;
+
 }
+.container__flex{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.columnart{
+    width: 30%;
+    margin:10px;
+    padding: 10px;
+ 
+}
+
 header{
     width: 100%;    
     background: #066dab ;
@@ -18,12 +38,64 @@ header{
     
    
 }
+.main-header--contactinfo__phone{
+    margin: 0  auto;
+    padding: 10px;
+}
+.main-header--contactinfo__adres{
+    margin: 0  auto;
+    padding: 10px;
+}
 
-#banner{
-    max-width: 100%;
-    min-height:25%;
-    background: #fff;
+
+
+.banner{
+
+  display: block    ;
+   
     margin: 0 auto;
+    width: 100%;
+
+
+   
+}
+.banner__img{
+    width: 100%;
+
+}
+.banner__content{
+  
+    color: black;
+    text-align: center;
+    position: relative;;
+    z-index: 500;
+    top:-50%;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    font-size: 1.8em;
+}
+.today-special.column{
+    margin-bottom: 30px;
+
+
+}
+.today-special__img{
+    display: block;
+    margin: auto;
+    max-width: 200px;
+}
+.today-special__title{
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.today-special__price{
+    text-align: center;
+    font-size: 1.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 header label{
     display:none;
@@ -63,137 +135,121 @@ header label:hover{
     color:#fff;
     text-decoration: none;
 }
-
-
-.carousel-item{
-    width: 100%;
-    height: 40px;
-    position: absolute;
-    top: 0 ;
-    min-height: 300px;
-    z-index: -1;
-  }
-  .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 25px;
-}
-  
 #logo{
     width: 150px;
     margin-top: 1%;
     margin-left: 50px;
-    animation: 1s tocarlogo 1s;
+    animation: 1s tocarlogo 1;
 }
 img{
-    display: block;
-    max-width: 100%;
+    margin-top: 10px;
 }
-
-
-/*MENU HORIZONTAL*/
-#menu-horizontal{
-    width: 100%;
-    min-height: 50px;
-    background: black;
-    margin: 0 auto;
-}
-#menu-horizontal ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-#menu-horizontal a{
-    color: #fff;
-    display: block;
-    padding: 20px;
-    text-decoration: none;
-    background: black;
-    font-family: arial;
-    font-size: 18px;
-}
-#menu-horizontal a:hover{
-    background: blue;
-}
-#menu-horizontal ul ul{
-    display: none;
-    position: absolute;
-}
-#menu-horizontal ul li:hover ul{
-    display: block;
-}
-
-#banner{
-    max-width: 100%;
-    min-height:25%;
-    background: #fff;
-    margin: 0 auto;
-}
-
-
-.info__columna {
-    background: blue;;
-    color: #fff;
-    padding: 15px;
-    margin-bottom: 30px;
-  }
-
-#contenido{
- 
-    min-height: 700px;
-    background: white;
-   
+main{ width: 100%;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
     box-sizing: border-box;
-    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    }
+
+
+/*cuerpo del registro*/
+.contenedor{
+    width:100%;
+margin-bottom: 20px;
+padding: 25%;
+padding-top:5%;
+box-sizing: border-box;
+font-size:17px;
+border-color: black;
+text-align: center;
+   
 }
-#contenido h2{
+.formulario{
+    margin: 20px;
+    background: white;
+    padding: 5%;
+
+}
+h1{
+    text-align:center;
+    color: #1a2537;
+    font-size: 40px;
+}
+
+input[type="text"],
+input[type="password"]{
+    font-size: 20px;
+    width: 90%;
+    padding: 20px;
+    border: none;
+}
+.input-contenedor{
+    margin-bottom: 15px;
+    border: 1px solid #aaa
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+.button{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover{
+    background: cadetblue;
+}
+p{
     text-align: center;
 }
-#contenido img{
-    padding: 1px;
-    width: 150px;
-    border-radius: 10px 10px 10px 10px;
-   }
-#contenido p{
-    text-align: justify;
-    font-family: arial;
-
+.link{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
 }
+.link:hover{
+    color:cadetblue;
+}
+
+  
+   
+
 footer{
+   
     max-width: 100%;
     min-height: 130px;
     background: black;
     margin: 0 auto;
     border-radius: 0 0 20px 20px;
     text-align: center;
-}
-@media (max-width: 600px) {
-    .carousel-item {
-      height: 280px;
-    }
-    .carousel-indicators{
-        display: none;
-    }
-  }
-@media(max-width:768px){
-    .carousel-indicators{
-        display: none;
-    }
 
+}
+@media(max-width:768px){
     header label{
         display: block ;
     }
-    
-   
     .menu{ 
         margin-top: auto;
-        position: absolute;;
+        position:none;
         width:70% ;
         margin-left: -70% ;
         transition: all 0.5s;
         
 
+    }
+    .columnart {
+        width: auto ;
+        flex-wrap: wrap;
+      
     }
     .menu ul{
         flex-direction:column ;
@@ -216,49 +272,17 @@ footer{
         background: #fff;
         margin: 0;
     }
-    #carouselExampleInterval{
-        background-image: none;
-
+.column--50{
+    width: 50%;
+}   
     }
-    .info {
-        display: block;
-        justify-content: space-between;
-        margin-top: 20px;
-      } 
-      .info__columna {
-        width: 100%;
-      }
-      .info__titulo {
-        font-size: 30px;
-        margin: 5px 0;
-      }
-      .section__titulo {
-        width: 100%;
-    }
-   
-}
-    
 
 @media(max-width:480px){
     header{  width: 100%;};
     form{width: 100%; };
-
-    .carousel-indicators{
-        display: none;
-    }
-
-    .info, .cursos {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-      }
-   
-      .info__titulo {
-        font-size: 30px;
-        margin: 5px 0;
-      }
-      .section__titulo {
-        width: 100%;
+    .columnart {
+        flex-wrap: wrap;
+  
     }
    
 }
