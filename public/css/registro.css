@@ -17,6 +17,7 @@ body{
 header{
     width: 100%;    
     background: #066dab ;
+    overflow: hidden;
 }
 #btn-menu{
     display:none;
@@ -31,7 +32,42 @@ header{
     margin: 0  auto;
     padding: 10px;
 }
+.buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 70%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+    background: #069;
+    padding: 10px;
+    height: 80px;
+    border-radius: 40px;
+}  
+.buscar_texto{
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    float: left;
+    line-height: 60px;
+    transition: .3s;
+    width: 0;
+} 
 
+.boton{
+   
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.buscador{
+   
+    height: 40px;
+}
 
 
 #banner{
@@ -136,7 +172,12 @@ main{ width: 100%;
     margin-bottom: 20px;
     border-radius: 7px;
     }
+.accordion{ 
+    overflow: hidden;
+    transition: all 0.5 s;
 
+
+}
 
 /*cuerpo del registro*/
 .contenedor{
@@ -219,6 +260,13 @@ footer{
 @media(max-width:768px){
     header label{
         display: block ;
+    }
+    .buscar{
+        top: 45%;   
+    }
+
+    .buscar:hover > .buscar_texto{
+        width: 150px;
     }
     .menu{ 
         margin-top: auto;
