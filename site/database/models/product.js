@@ -17,13 +17,13 @@ module.exports = (sequelize, DataTypes) => {
         stock: {
             type: DataTypes.INTEGER(11)
         },
-        especification: {
+        descripcion: {
             type: DataTypes.STRING(200)
-        },
+        },  
         avatar: {
             type: DataTypes.STRING(200)
         },
-        cartegorys_id: {
+        categorys_id: {
             type: DataTypes.INTEGER(10),
             foreignKey: true
         },
@@ -45,13 +45,14 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'id'
         });
         Product.belongsTo(models.Category, {
-            as: 'cartegory',
-            foreignKey: 'cartegorys_id'
+            as: 'Cartegory',
+            foreignKey: 'categorys_id'
         });
-        Product.belongsTo(models.Brand, {
-            as: 'marca',
+        Product.belongsTo(models.Marca, {
+            as: 'Marca',
             foreignKey: 'marcas_id'
         });
+
     }
 
     return Product;

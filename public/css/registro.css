@@ -24,6 +24,9 @@ header{
     
    
 }
+.errores{
+ list-style: none;
+}
 .main-header--contactinfo__phone{
     margin: 0  auto;
     padding: 10px;
@@ -62,6 +65,9 @@ header{
     text-decoration: none;
     color: white;
     font-size: 30px;
+}
+.errores{
+    list-style: none;
 }
 
 .buscador{

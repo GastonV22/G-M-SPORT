@@ -1,8 +1,8 @@
-modile.exports={
+module.exports={
   "development": {
     "username": "root",
-    "password": "maximo",
-    "database": "gmsport",
+    "password": "",
+    "database": "GMSPORT",
     "host": "localhost",
     "dialect": "mysql"
   },

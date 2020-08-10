@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let alias = 'marca';
+    let alias = 'Marca';
     let cols = {
         id: {
             type: DataTypes.INTEGER(11),
@@ -12,19 +12,19 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     let config = {
-        tableName: 'marca',
+        tableName: 'marcas',
         timestamps: false
     };
 
-    const Brand = sequelize.define(alias, cols, config);
+    const Marca = sequelize.define(alias, cols, config);
     
-    Brand.associate = models => {
-        Brand.hasMany(models.Product, {
-            as: 'product',
+    Marca .associate = models => {
+        Marca .hasMany(models.Product, {
+            as: 'Product',
             foreignKey: 'marcas_id'
         });
     };
 
-    return marca;
+    return Marca;
 
 };

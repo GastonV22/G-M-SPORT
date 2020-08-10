@@ -1,13 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
 
-    let alias = 'Users';
+    let alias = 'User';
     let cols = {
         id: {
             type: DataTypes.INTEGER(11),
             primaryKey: true,
             autoIncrement: true
         },
-        fisrtname: {
+        firstname: {
             type: DataTypes.STRING(200)
         },
         lastname: {
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         
     };
     let config = {
-        tableName: 'userss',
+        tableName: 'users',
         timestamps: false
     };
 

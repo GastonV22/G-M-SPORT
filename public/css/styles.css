@@ -16,11 +16,7 @@ section{
     flex-wrap: wrap;
 
 }
-.container__flex{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
+
 
 .buscar{
     display: flex;
@@ -77,39 +73,55 @@ header{
    
 }
 .main-header--contactinfo__phone{
-    margin: 0  auto;
+    margin: 10px;
     padding: 10px;
+    width: 80px;
+    height: 80px;
 }
 .main-header--contactinfo__adres{
-    margin: 0  auto;
+    margin: 10px;
     padding: 10px;
-}
-
-.c-slider{
-      margin: auto;
-    width: 90%;
-    max-width: 900px;
-    position: relative;
-    overflow: hidden;
-
+    
 }
 .slider{
-display: flex;
-width: 400%;
-height:300px ;
-animation-duration: 1s;
+    height: 30%;
+    width: 30%;
+    margin:auto;
+    overflow:hidden
+}
+.slider ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+animation: cambio 20s infinite alternate
 
 }
-.secSlider{
+.slider li{
     width: 100%;
-    margin: 10px;
+    list-style:none
 }
-.slider img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+@keyframes cambio{
+    0%{ margin-left:0;}
+    20%{ margin-left: 0;}
     
+    25%{margin-left:-100%; }
+    45%{margin-left:-100% ;}
+
+    50%{margin-left:-200%; }
+    70%{margin-left:-200%; }
+
+    55%{margin-left:-300%; }
+    100%{margin-left:-300%; }
+    }
+
+.slider img{
+    width: 100%;
+}
+
+  .container__flex{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .btn-prev, .btn-next{
@@ -117,13 +129,11 @@ animation-duration: 1s;
     height: 40px;
     background: rgba(22, 22, 22, 0.5);
     position: absolute ;
-  
     transform: translateY(-50%);
     line-height: 100%;
     font-size: 100%;
     text-align: center;
     border-radius: 50%;
-    
     cursor: pointer;
 }
 .btn-prev{
@@ -344,6 +354,12 @@ footer{
         
 
     }
+    #btn-menu:checked ~ .menu{
+     
+        margin: 0;
+
+
+    }
     .columnart {
         width: auto ;
         flex-wrap: wrap;
@@ -358,12 +374,7 @@ footer{
 
     }
 
-    #btn-menu:checked ~ .menu{
-     
-        margin: 0;
-
-
-    }
+    
     #banner{
         max-width:40%;
         min-height:25%;
@@ -373,6 +384,17 @@ footer{
 .column--50{
     width: 50%;
 }   
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+
     }
 
 @media(max-width:480px){

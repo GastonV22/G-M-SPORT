@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     let config = {
-        tableName: 'cart',
+        tableName: 'carts',
         timestamps: false       
     };
 
@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'user_id'
         });
         Cart.belongsTo(models.Product, {
-            as: 'product',
+            as: 'Product',
             foreignKey: 'products_id'
         });
     };

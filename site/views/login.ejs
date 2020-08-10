@@ -7,7 +7,7 @@
 <body>
   <%- include('partials/header.ejs') %>
         <main>
-          <%if( typeof errors !='undefined') {%>
+         <div class="errores"> <%if( typeof errors !='undefined') {%>
             <p  style="color:red"> Error debe completar los campos </p>
             <ul>
               <% for (let i= 0;i<errors.length; i ++) {%>
@@ -19,6 +19,7 @@
             </ul>
 
           <%}%>
+        </div>
           <form method="POST" action="/user/login" class="formulario">
 
 
@@ -26,11 +27,11 @@
         <div class="contenedor">
             <div class="input-contenedor"></div>
             <i class="fas fa-envelope icon"></i>
-            <input type="text" name="email" placeholder="email">
-      
+            <input type="text" name="email" placeholder="email"required>
+          
             <div class="input-contenedor"></div>
             <i class="fas fa-key icon"></i>
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="password" placeholder="password" required>
             <br>
             <input type="submit" value="Login" class="button">
            
