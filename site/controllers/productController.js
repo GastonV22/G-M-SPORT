@@ -3,27 +3,10 @@ const bcrypt = require ( 'bcrypt' ) ;
 const {check, validationResult, body}= require('express-validator');
 const multer = require("multer");
 let db= require("../database/models")
+
+
 let productcontroller={
 
-    edit: function(req,res,next){
-
-        let idProducts= req.params.idProducts;
-        let productstoEdit=[
-            {id:1,},
-            {id:2,}, 
-            {id:3,},
-            {id:4,},
-            {id:5,},
-        ] 
-       
-        let productsEdit = producto[idProducts];
-
-    res.render('/edit', {productsToEdit:productsToEdit});
-  
-  
-    },
-    
-   
 
   
     create: function(req,res, next){
@@ -31,13 +14,9 @@ let productcontroller={
         res.render('create');
     },
    
-    list:function (req,res ){
-        db.Product.findAll()
-            .then(function(productos){
-                res.render("list",{productos:productos})
-            })
-        },
+   
 
+     
     //let prod=fs.readFileSync('data/prod.JSON', {encoding:'utf-8'});
    
    // res.render('list',{'prod':prod});
@@ -45,9 +24,7 @@ let productcontroller={
   
     //res.render('list')},
     
-    delete:function(req,res){
-        res.render('delete')
-    },
+   
     
     search: function (req,res) {
         res.render('search')
@@ -97,10 +74,49 @@ let productcontroller={
         
        res.redirect('/products/list') 
      ;
-}
+},
+list:function (req,res ){
+    db.Product.findAll()
+        .then(function(productos){
+            res.render("list",{productos:productos})
+        })
+    },
 
+detalle:function (req,res ){
+    db.Product.findByPk(req.params.id,{
+        //  include:[{association:'Cartegory'},{association:'Marca'}]
+    })
+        .then(function(productos){
+           
+            res.render('detalleProducto',{productos:productos})
+        })
+    },
 
+    
+    edit: function(req,res){
 
+        let pedidoProducts=db.Product.findByPK( req.params.id)
+        
+        
+
+        .then(function(products){
+           
+            res.render('edit/id',{products:products})
+        })
+  
+  
+    },
+    
+   
+
+    delete:function(req,res){
+        db.Product.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        res.redirect('list')
+    },
 //guardarla
 }
 module.exports= productcontroller;

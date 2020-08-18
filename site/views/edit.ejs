@@ -15,19 +15,22 @@
         <main>
         <form class="formulario">
 
-        <h1>Editar producto <%= productsToEdit.name%></h1>
-        <form method="post" action="/products/edit?_method=put">
-        <div class="contenedor">
-            <div class="input-contenedor"></div>
-            <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="firstName" value="<%= productsToEdit.name%>">
-            <input type="submit" value="Editar" name="" id="">
-            <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
-            <p>¿Ya tienes cuenta? <a class="link" href="login.html">Iniciar Sesión</a></p>
-            <p>¿Deseas volver al inicio? <a class= "link" href="index.html">Volver al Home</a></p>
-        </div>
-    </form>
-</main>
+            <form class="formulario" action="/products/edit/<%=products.id%>" method="POST"enctype="multipart/form-data">
+            <h2>AGREGAR PRODUCTO</h2>
+           <input type="text"name ="name" placeholder="name"> 
+           <input type="text"name="marca" placeholder="marca"> 
+           <input type="text"name="descripcion" placeholder="descripcion"> 
+           <input type="text"name="stock" placeholder="stock">
+           <input type="text"name="precio" placeholder="precio"> 
+           <div class="input-contenedor"></div>
+                   <i class="fas fa-envelope icon "></i>
+                   <input type="file"name="avatar" placeholder="avatar"> 
+                   <br>
+           <textarea name="comentario" id="comntario" cols="30" rows="10" placeholder="comntarios"></textarea>
+           <input type="submit" value="Enviar" class="button">
+       </form>
+       </main>
+       
 
 
 <footer><%- include('partials/footer.ejs') %> </footer> 

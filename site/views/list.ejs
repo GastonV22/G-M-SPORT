@@ -10,9 +10,11 @@
         <main>
             <h1>listado de producto nuevo </h1>
             <ul> <% for (let i=0; i < productos.length; i++) { %>
-                <li>
-                     <%=productos[i].name%>
-                </li>
+              <div> 
+                 <li>
+                   <a href="<%=productos[i].id%>"><%=productos[i].name%></a>  </li>
+                    
+                    </div>
 
             <% } %>
 

@@ -28,7 +28,7 @@ section{
     transform: translate(-50%,-50%);
     background: #069;
     padding: 10px;
-    height: 80px;
+    height: 60px;
     border-radius: 40px;
 }  
 .buscar_texto{
@@ -338,7 +338,7 @@ footer{
         display: block ;
     }
     .buscar{
-        top: 45%;   
+        top: 47%;   
     }
 
     .buscar:hover > .buscar_texto{
@@ -347,8 +347,8 @@ footer{
     .menu{ 
         margin-top: auto;
         position:none;
-        width:70% ;
-        margin-left: -70% ;
+        width:35% ;
+      
         transition: all 0.5s;
         border-radius: 40px;
         
@@ -403,6 +403,16 @@ footer{
     .columnart {
         flex-wrap: wrap;
   
+    }
+    .menu{ 
+        margin-top: auto;
+        position:none;
+        width:70% ;
+      
+        transition: all 0.5s;
+        border-radius: 40px;
+        
+
     }
    
 }

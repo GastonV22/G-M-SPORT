@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+    <body>
+        
+        <%- include('partials/header.ejs') %>
+                
+        <main>
+            <h1><%=productos.name%></h1>
+           <ul>
+                <li>
+                    name:<%=productos.name%>
+                </li>
+                <li>
+                    marca:<%=productos.marca%>
+                </li>
+
+                <li>
+                    precio:<%=productos.precio%>
+                </li>
+
+                <li>
+                    stock:<%=productos.name%>
+                </li>
+
+                <li>
+                    descripcion:<%=productos.descripcion%>
+                </li>
+                <li>
+                    categorys_id:<%=productos.categorys_id%>
+                </li>
+                <li>
+                    marcas_id:<%=productos.marcas_id%>
+                </li>
+
+
+           </ul>
+         <a  href="/products/edit/<%=productos.id%>">
+              <button>EDITAR</button> 
+          </a>
+          <form action="/products/delete/<%=productos.id%>" method="post"enctype="multipart/form-data">
+              <button type="submit"> BORRAR </button>
+        </form>
+
+            
+            </main>
+
+            <footer><%- include('partials/footer.ejs') %> </footer> 
