@@ -93,21 +93,36 @@ detalle:function (req,res ){
     },
 
     
-    edit: function(req,res){
+    edit:function(req,res){
 
-        let pedidoProducts=db.Product.findByPK( req.params.id)
+        db.Product.findByPk(req.params.id)
         
-        
-
-        .then(function(products){
+         .then(function(productos){
            
-            res.render('edit/id',{products:products})
+            res.render('edit',{productos:productos})
         })
   
   
-    },
+    }, 
     
-   
+   actualizar:function(req,res){
+     
+    db.Product.update({
+        name: req.body.name,
+        marca: req.body.marca,
+        precio:req.body.precio,
+        stock: req.body.stock,
+        descripcion: req.body.descripcion,
+        // categorys_id: 1,
+        // marcas_id: 1
+    }, {
+        where:{
+            id: req.params.id
+        }
+
+    });
+    res.redirect("/products/" + req.params.id)
+   },
 
     delete:function(req,res){
         db.Product.destroy({
@@ -115,7 +130,7 @@ detalle:function (req,res ){
                 id:req.params.id
             }
         })
-        res.redirect('list')
+        res.redirect('/products/list')
     },
 //guardarla
 }

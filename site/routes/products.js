@@ -27,12 +27,12 @@ router.get('/list',productController.list);
 
 router.get('/:id',productController.detalle);
 
-router.get('/edit:id',productController.edit)
+router.get('/edit/:id',productController.edit);
 
-router.post('/edit:id',productController.edit)
+router.post('/edit/:id',productController.actualizar)
 
-router.get('/delete/:id',productController.delete);
+router.post('/delete/:id',productController.delete);
 
-router.get('/search',productController.search)
+router.get('/search',productController.search);
 
 module.exports = router;

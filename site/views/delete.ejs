@@ -12,7 +12,7 @@
   <%- include('./partials/header') %>
  <main>
 <div class="Delete">
-    <form action="/products/<%=product.id%>?_method=delete" method="POST" enctype="multipart/form-data">
+    <form method="POST"action="/products/<%=product.id%>?_method=delete"  enctype="multipart/form-data">
     <div>
         <label for="confirmacion">Desea eliminar este producto</label>
        <button></button> <input type="submit" name='confirmacion'>Si</button>
