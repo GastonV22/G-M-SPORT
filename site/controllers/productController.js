@@ -41,13 +41,14 @@ let productcontroller={
        
           
     }
-
+  
     db.Product.create({
         name: req.body.name,
         marca: req.body.marca,
         precio:req.body.precio,
         stock: req.body.stock,
         descripcion: req.body.descripcion,
+        avatar: req.body.avatar,
         categorys_id: 1,
         marcas_id: 1
     });
@@ -94,6 +95,7 @@ detalle:function (req,res ){
 
     
     edit:function(req,res){
+        let productos = req.params.id;
 
         db.Product.findByPk(req.params.id)
         
@@ -113,8 +115,9 @@ detalle:function (req,res ){
         precio:req.body.precio,
         stock: req.body.stock,
         descripcion: req.body.descripcion,
-        // categorys_id: 1,
-        // marcas_id: 1
+       avatar: req.body.avatar,
+        categorys_id: 1,
+        marcas_id: 1
     }, {
         where:{
             id: req.params.id

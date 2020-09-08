@@ -7,13 +7,13 @@ const bcryptjs = require('bcryptjs');
 let userController={
    
     register: function(req,res){
-        res.render('register')    
+        res.render('register',{usuario: req.session.user} )    
     },
 
   
 
     login: function(req,res){
-        res.render('login')
+        res.render('login',{usuario: req.session.user} )
     },
 
 processLogin:function (req,res) {
@@ -42,7 +42,7 @@ processLogin:function (req,res) {
                     
                     
                 }
-                res.redirect('/')
+                res.redirect('/',{usuario: req.session.user} )
                 // res.send('paso por aqui')
                 // }).catch((error) => {
                 //     console.error(error);
@@ -50,7 +50,7 @@ processLogin:function (req,res) {
                  })
 
             } else{
-                return res.render('login',{errors: errors.errors}) 
+                return res.render('login',{errors: errors.errors},{usuario: req.session.user} ) 
                     }
             
            
@@ -111,7 +111,8 @@ createUser: function (req,res){
             categorys_id: 1,
             marcas_id: 1
         });
-        res.redirect('/')
+        req.session.logeado=true
+        res.redirect('/',{usuario: req.session.user} )
     },
 //   let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
 //     let usuarios;

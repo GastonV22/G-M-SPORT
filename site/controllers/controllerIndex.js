@@ -1,11 +1,11 @@
 let controllerIndex={
     
     home: function(req,res, ){
-        res.render('index')
+        res.render('index',{usuario: req.session.user} )
         ;next();
     },
     carrito: function(req,res, next){
-        res.render('carrito')
+        res.render('carrito',{usuario: req.session.user} )
         ;next();
     },
     

@@ -5,7 +5,6 @@ const multer = require("multer");
 const path = require("path");
 /* GET home page. */
 
-
 router.get('/', controllerIndex.home);
 
 //router.get('/', function(req,res, next){

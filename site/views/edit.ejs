@@ -15,9 +15,9 @@
         
         <%- include('partials/header.ejs') %>
                 
-        <main>
+        <main class="list">
    
-           <form class="formulario" action="/products/edit/<%=productos.id%>"  method="POST"enctype="multipart/form-data">
+           <form class="formulario" action="/products/edit/<%=productos.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
             <h2>EDITAR PRODUCTO</h2>
             <h1><%=productos.name%></h1>
            <input type="text"name ="name" placeholder="name"value=' <%=productos.name%>'> 
@@ -28,8 +28,8 @@
            <div class="input-contenedor"></div>
                    <i class="fas fa-envelope icon "></i>
                    <input type="file"name="avatar" placeholder="avatar"value=' <%=productos.avatar%>'> 
-                 
-            <input type="submit" value="EDITAR" class="button">
+               <a href="/products/edit/<%=productos.id%>"> 
+            <input type="submit" value="EDITAR" class="button"></a> 
        </form>
        </main>
        

@@ -4,6 +4,7 @@ const productController = require("../controllers/productController");
 const multer = require("multer");
 const path = require("path");
 const fs = require ('fs');
+const adminMdw = require ("../middlewares/admin");
 
 
 var storage = multer.diskStorage({
@@ -21,7 +22,7 @@ var storage = multer.diskStorage({
 
 router.get('/create',productController.create);
 
-router.post('/create', upload.any(),productController.createProd);
+router.post('/create',adminMdw, upload.any(),productController.createProd);
 
 router.get('/list',productController.list);
 
@@ -29,7 +30,7 @@ router.get('/:id',productController.detalle);
 
 router.get('/edit/:id',productController.edit);
 
-router.post('/edit/:id',productController.actualizar)
+router.put('/edit/:id',adminMdw,upload.any(),productController.actualizar)
 
 router.post('/delete/:id',productController.delete);
 

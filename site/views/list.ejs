@@ -7,10 +7,10 @@
         
         <%- include('partials/header.ejs') %>
                 
-        <main>
-            <h1>listado de producto nuevo </h1>
-            <ul> <% for (let i=0; i < productos.length; i++) { %>
-              <div> 
+        <main class="list">
+            <div><h1>Listado de producto nuevo </h1>
+            <ul > <% for (let i=0; i < productos.length; i++) { %>
+              <div class="listado"> 
                  <li>
                    <a href="<%=productos[i].id%>"><%=productos[i].name%></a>  </li>
                     
@@ -21,6 +21,7 @@
               
                   
             </ul>
+        </div>
             </main>
 
             <footer><%- include('partials/footer.ejs') %> </footer> 

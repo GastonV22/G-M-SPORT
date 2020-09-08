@@ -24,8 +24,12 @@
         <li><a href="">Accesorio</a></li>
         <li><a href="">deportes</a></li>
         <li><a href="/faq">Contactenos</a></li>
+        <% if (locals.logeado === true) { %>
+        <li><a href="/perfil">Perfil</a></li>
+        <%} else {%>
         <li><a href="/user/register">Registrese</a></li>
         <li><a href="/user/login">Login</a></li>
+        <% } %>
     </ul>
   </nav>
 </header>

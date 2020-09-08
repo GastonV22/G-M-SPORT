@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 const userController = require("../controllers/userController");
 const multer = require("multer");
-const rememberMiddleware= require ('../middlewares/rememberMiddleware');
+
 const {check, validationResult, body}= require('express-validator');
 const fs = require ('fs');
 const path = require("path"); 
 const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
+
+const guestMdw = require ("../middlewares/guest");
+const authMdw = require ("../middlewares/auth");
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -24,11 +28,11 @@ var storage = multer.diskStorage({
 
 //GET users listing. 
 
-router.get('/register',userController.register);
+router.get('/register',guestMdw ,userController.register);
 
 router.post('/register', upload.any(),userController.createUser);
 
-router.get('/login',userController.login);
+router.get('/login',guestMdw ,userController.login);
 
 router.post('/login',[
 

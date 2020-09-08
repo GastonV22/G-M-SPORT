@@ -40,7 +40,7 @@ header{
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 70%;
+    left: 80%;
     top: 25%;
     transform: translate(-50%,-50%);
     background: #069;
@@ -58,16 +58,51 @@ header{
     line-height: 60px;
     transition: .3s;
     width: 0;
-} 
+}
+.list{
+    width: 100%;
+    margin: 10px;
+    margin-left: 0px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+.listado  {
+    list-style: none;
+    position: right;
+    display: block    ;    
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    text: honeydew;
 
+}
+.listado li {
+    list-style: none;
+    position: right;
+    display: block    ;    
+    margin:10px ;
+    width: 10%;
+    height: 10%;
+}
 .boton{
    
     text-decoration: none;
     color: white;
     font-size: 30px;
 }
+.errores ul{
+    list-style: none;
+    font-size: 25px;
+}
 .errores{
     list-style: none;
+    font-size: 25px;
 }
 
 .buscador{
@@ -189,7 +224,7 @@ main{ width: 100%;
 .contenedor{
     width:100%;
 margin-bottom: 20px;
-padding: 25%;
+padding: none;
 padding-top:5%;
 box-sizing: border-box;
 font-size:17px;
@@ -198,9 +233,13 @@ text-align: center;
    
 }
 .formulario{
+    display: block;
+    width:90%;
     margin: 20px;
     background: white;
     padding: 5%;
+    text-align: center;
+   border: 10px
 
 }
 h1{
@@ -249,7 +288,9 @@ p{
 .link:hover{
     color:cadetblue;
 }
-
+.avatar{
+    width: 100%;
+}
   
    
 
@@ -268,17 +309,17 @@ footer{
         display: block ;
     }
     .buscar{
-        top: 47%;   
+        top: 44%;   
     }
 
     .buscar:hover > .buscar_texto{
         width: 150px;
     }
     .menu{ 
-        margin-top: auto;
+     
         position:none;
-        width:70% ;
-        margin-left: -70% ;
+        width:63% ;
+        margin-left: -70%;  
         transition: all 0.5s;
         
 

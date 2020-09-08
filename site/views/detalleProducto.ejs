@@ -7,44 +7,55 @@
         
         <%- include('partials/header.ejs') %>
                 
-        <main>
-            <h1><%=productos.name%></h1>
-           <ul>
-                <li>
-                    name:<%=productos.name%>
-                </li>
-                <li>
-                    marca:<%=productos.marca%>
-                </li>
+        <main >
+           
+           <div class="list"> <h1 c><%=productos.name%></h1>
+           <ul class="listado">
+                
+            <li>
+                AVATAR:<%=productos.avatar%>
+            </li>
+            
+            <li>
+                    NOMBRE:<%=productos.name%>
+            </li>
+            
+            <li>
+                MARCA:<%=productos.marca%>
+            </li>
 
-                <li>
-                    precio:<%=productos.precio%>
-                </li>
+            <li>
+                PRECIO:<%=productos.precio%>
+            </li>
 
-                <li>
-                    stock:<%=productos.name%>
-                </li>
+            <li>
+                STOCK:<%=productos.stock%>
+            </li>
 
-                <li>
-                    descripcion:<%=productos.descripcion%>
-                </li>
-                <li>
-                    categorys_id:<%=productos.categorys_id%>
-                </li>
-                <li>
-                    marcas_id:<%=productos.marcas_id%>
-                </li>
+            <li>
+                DESCRIPCION:<%=productos.descripcion%>
+            </li>
+            
+            <li>
+                categorys_id:<%=productos.categorys_id%>
+            </li>
+            <li>
+                marcas_id:<%=productos.marcas_id%>
+            </li>
 
 
-           </ul>
-         <a  href="/products/edit/<%=productos.id%>">
+          
+        <li> <a  href="/products/edit/<%=productos.id%>">
               <button>EDITAR</button> 
-          </a>
-          <form action="delete/<%=productos.id%>" method="post"enctype="multipart/form-data">
+          </a></li>
+          <li><form action="delete/<%=productos.id%>" method="post"enctype="multipart/form-data">
               <button type="submit"> BORRAR </button>
+            </ul></li>
         </form>
-
+    </div>
             
             </main>
-
+            <a  href="/products/list" class="listado">
+                <button>LISTADO DE PRODUCTO</button> 
+            </a>
             <footer><%- include('partials/footer.ejs') %> </footer> 

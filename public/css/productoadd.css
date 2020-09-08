@@ -194,28 +194,35 @@ max-width: 100%;
 main{ 
     padding: 20px;
 }
+
 footer{
+   
     max-width: 100%;
     min-height: 130px;
     background: black;
     margin: 0 auto;
     border-radius: 0 0 20px 20px;
     text-align: center;
+
 }
+
 
 a img{
     text-decoration: none;
-    padding: 20px;
-    
+    width:"100px";
+     height:"100px"
 }
+ 
+    
+
 @media(max-width:768px){
     header label{
         display: block ;
     }
     .menu{ 
         position: absolute;
-        width:70% ;
-        margin-left: -70% ;
+        width:63% ;
+        margin-left: none;
         transition: all 0.5s;
        
 
@@ -228,6 +235,12 @@ a img{
         border-top:  1px solid #fff
 
     }
+    .buscar{
+        top: 44%;   
+    }
+
+    .buscar:hover > .buscar_texto{
+        width: 150px;}
 
     #btn-menu:checked ~ .menu{
      
