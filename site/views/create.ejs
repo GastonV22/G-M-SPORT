@@ -7,7 +7,19 @@
 <body>
   <%- include('partials/header') %>
  <main>  
-  <form action="/products/create" method="POST"enctype="multipart/form-data">
+  <div class="errors">
+    <% if (typeof errors != "undefined") { %>
+        <ul>
+            <% for (let i =0; i < errors.length; i++) { %>
+              <li class="erroritem">
+                  <%=errors[i].msg%>
+              </li>
+            <% } %>
+          </ul>
+    <% } %> 
+
+  </div>  
+  <form class="formulario" action="/products/create" method="POST"enctype="multipart/form-data">
      <h2>AGREGAR PRODUCTO</h2>
     <input type="text"name ="name" placeholder="name"> 
     <input type="text"name="marca" placeholder="marca"> 
@@ -23,7 +35,7 @@
     <input type="submit" value="Enviar" class="button">
 </form>
 </main>
-
+<script src="/js/cargaProducto.js"></script>
 <footer> <%- include('partials/footer.ejs') %> </footer> 
 
 </body>

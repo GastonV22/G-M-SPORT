@@ -29,7 +29,7 @@ let productcontroller={
     search: function (req,res) {
         res.render('search')
     },
- createProd: function (req,res){
+ createProd: function (req,res, next){
         
     let products = {
         producto: req.body.producto,
@@ -41,6 +41,18 @@ let productcontroller={
        
           
     }
+    let errors = validationResult(req);
+       // console.log(errors);
+        console.log(req.body)
+        if (!errors.isEmpty()) {
+            db.Product.findAll()
+            .then(function(product){
+                db.Marca.findAll().
+                then(function(marcas){
+                    res.render("cargaProducto", {marcas, product, body: req.body, errors: errors.errors});
+                })
+            })
+            } else {
   
     db.Product.create({
         name: req.body.name,
@@ -75,7 +87,8 @@ let productcontroller={
         
        res.redirect('/products/list') 
      ;
-},
+}
+ },
 list:function (req,res ){
     db.Product.findAll()
         .then(function(productos){
@@ -96,6 +109,20 @@ detalle:function (req,res ){
     
     edit:function(req,res){
         let productos = req.params.id;
+        let errors = validationResult(req);
+       // console.log(errors);
+
+        if (!errors.isEmpty()) {
+           
+            db.Product.findByPk(req.params.id)
+            .then(function(producto){
+              db.Marca.findAll().
+                        then(function(marcas){
+                            res.render("editarProducto", {producto, marcas, errors: errors.errors});
+                        })
+                  
+            })
+                } else {
 
         db.Product.findByPk(req.params.id)
         
@@ -105,7 +132,8 @@ detalle:function (req,res ){
         })
   
   
-    }, 
+    }
+}, 
     
    actualizar:function(req,res){
      

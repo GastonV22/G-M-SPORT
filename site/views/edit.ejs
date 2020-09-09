@@ -16,6 +16,17 @@
         <%- include('partials/header.ejs') %>
                 
         <main class="list">
+            <div class="errors">
+                <% if (typeof errors != "undefined") { %>
+                    <ul>
+                        <% for (let i =0; i < errors.length; i++) { %>
+                          <li class="erroritem">
+                              <%=errors[i].msg%>
+                          </li>
+                        <% } %>
+                      </ul>
+                <% } %>
+              </div>
    
            <form class="formulario" action="/products/edit/<%=productos.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
             <h2>EDITAR PRODUCTO</h2>
@@ -34,6 +45,7 @@
        </main>
        
 
-
+       <script src="/js/editarProducto.js"></script>
 <footer><%- include('partials/footer.ejs') %> </footer> 
+
 </body>

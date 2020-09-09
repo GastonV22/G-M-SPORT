@@ -91,28 +91,42 @@ processLogin:function (req,res) {
 
 userList:function(req,res){},
 
-createUser: function (req,res){
+createUser: function (req,res,next){
     
         let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password:  bcrypt.hashSync(req.body.password, 10),
+            password:  bcrypt.hashSync(req.body.password, 8),
           
          
         }
+        let errors = validationResult(req);
+            
+            if(errors.isEmpty()) {                  
+                usuario = {
+                 name : req.body.name,
+                 email : req.body.email,
+                 password : bcrypt.hashSync(req.body.password, 8),
+                 
+             }
 
         db.User.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
+            password: bcrypt.hashSync(req.body.password, 8),
             avatar: req.body.avatar,
             categorys_id: 1,
             marcas_id: 1
         });
         req.session.logeado=true
         res.redirect('/',{usuario: req.session.user} )
+    }else {
+        console.log(errors.mapped())
+        return res.render ("register", {errors: errors.mapped() , body : req.body}  )
+    }
+
     },
 //   let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
 //     let usuarios;
