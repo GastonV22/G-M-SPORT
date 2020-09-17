@@ -3,11 +3,12 @@
   <head>
     <%- include('partials/head.ejs') %>
   </head>
-  <link rel="stylesheet" href="/css/productoadd.css">
+ 
 <body>
   <%- include('partials/header') %>
+ 
  <main>  
-  <div class="errors">
+  <div class="errores">
     <% if (typeof errors != "undefined") { %>
         <ul>
             <% for (let i =0; i < errors.length; i++) { %>
@@ -22,7 +23,11 @@
   <form class="formulario" action="/products/create" method="POST"enctype="multipart/form-data">
      <h2>AGREGAR PRODUCTO</h2>
     <input type="text"name ="name" placeholder="name"> 
+    <% if (typeof errors != 'undefined') { %>
+      <div class="errors"><%= errors.name ? errors.name.msg : '' %> </div>
+    <% } %> 
     <input type="text"name="marca" placeholder="marca"> 
+    
     <input type="text"name="descripcion" placeholder="descripcion"> 
     <input type="text"name="stock" placeholder="stock">
     <input type="text"name="precio" placeholder="precio">
@@ -31,11 +36,12 @@
             
             <input type="file"name="avatar" placeholder="avatar"> 
             
-    <textarea name="comentario" id="comntario" cols="30" rows="10" placeholder="comntarios"></textarea>
+ 
     <input type="submit" value="Enviar" class="button">
+    <script src="/js/cargaProducto.js"></script>
 </form>
 </main>
-<script src="/js/cargaProducto.js"></script>
+
 <footer> <%- include('partials/footer.ejs') %> </footer> 
 
 </body>

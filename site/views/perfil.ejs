@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+    <body>
+        
+        <%- include('partials/header.ejs') %>
+                
+        <main >
+           
+           <div class="list"> <h1><%= users.firstname %></h1>
+           <ul class="listado">
+                
+            <li>
+                AVATAR:<%=users.avatar%>
+            </li>
+            
+            <li>
+                    NOMBRE:<%=users.firstname%>
+            </li>
+            
+            <li>
+                APELLIDO:<%=users.lastname%>
+            </li>
+
+            <li>
+                EMAIL:<%=users.email%>
+            </li>
+
+            <li>
+                PASSWORD:<%=users.password%>
+            </li>
+
+            <li> <a  href="/">
+                <button>EMPEZAR A COMPRAR </button> 
+            </a></li>
+            
+          
+        <li> <a  href="/user/editPerfil/<%=users.id%>">
+              <button>EDITAR</button> 
+          </a></li>
+          <li><form action="deletePerfil/<%=users.id%>" method="post"enctype="multipart/form-data">
+              <button type="submit"> BORRAR </button>
+            </ul></li>
+        </form>
+    </div>
+            
+            </main>
+            
+            <footer><%- include('partials/footer.ejs') %> </footer> 

@@ -16,7 +16,7 @@
         <%- include('partials/header.ejs') %>
                 
         <main class="list">
-            <div class="errors">
+            <!-- <div class="errors">
                 <% if (typeof errors != "undefined") { %>
                     <ul>
                         <% for (let i =0; i < errors.length; i++) { %>
@@ -27,26 +27,25 @@
                       </ul>
                 <% } %>
               </div>
-   
-           <form class="formulario" action="/products/edit/<%=productos.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
-            <h2>EDITAR PRODUCTO</h2>
-            <h1><%=productos.name%></h1>
-           <input type="text"name ="name" placeholder="name"value=' <%=productos.name%>'> 
-           <input type="text"name="marca" placeholder="marca"value=' <%=productos.marca%>'> 
-           <input type="text"name="descripcion" placeholder="descripcion"value=' <%=productos.descripcion%>'> 
-           <input type="text"name="stock" placeholder="stock"value=' <%=productos.stock%>'>
-           <input type="text"name="precio" placeholder="precio"value=' <%=productos.precio%>'>
+    -->
+           <form class="formulario" action="/user/editPerfil/<%=users.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
+            <h2>EDITAR PERFIL</h2>
+            <h1>Hola <%=users.firstname%></h1>
+           <input type="text"name ="firstname" placeholder="firstname"value=' <%=users.firstname%>'> 
+           <input type="text"name="lastname" placeholder="lastname"value=' <%=users.lastname%>'> 
+           <input type="text"name="email" placeholder="email"value=' <%=users.email%>'> 
+           <input type="text"name="password" placeholder="password"value=' <%=users.password%>'>
+           
            <div class="input-contenedor"></div>
                    <i class="fas fa-envelope icon "></i>
-                   <input type="file"name="avatar" placeholder="avatar"value=' <%=productos.avatar%>'> 
-               <a href="/products/edit/<%=productos.id%>"> 
+                   <input type="file"name="avatar" placeholder="avatar"value=' <%=users.avatar%>'> 
+               <a href="/user/perfil/<%=users.id%>"> 
             <input type="submit" value="EDITAR" class="button"></a> 
-            <script src="/js/editarProducto.js"></script>
        </form>
        </main>
        
 
-    
+       
 <footer><%- include('partials/footer.ejs') %> </footer> 
 
 </body>

@@ -12,19 +12,22 @@
         
         <%- include('partials/header.ejs') %>
                 
-        <main>
-            <h1>user list</h1>
-          
+             
+        <main class="list">
+            <div><h1>Listado clientes nuevos </h1>
+            <ul > <% for (let i=0; i < users.length; i++) { %>
+              <div class="listado"> 
+                 <li>
+                   <a href="<%=users[i].id%>"><%=users[i].firstname%></a>  </li>
+                    
+                    </div>
 
-            <h2>Search</h2>
-            <form action="/search" method="GET">
-            <input type="text" name='query'>
-            <input type="sumit" name="search" id="">
-        </form>
-            
-        
-            
+            <% } %>
+
+              
+                  
             </ul>
+        </div>
             </main>
 
             <%- include('partials/footer.ejs') %>

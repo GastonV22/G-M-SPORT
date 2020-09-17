@@ -1,11 +1,11 @@
 window.onload = () => {
 
-    formulario = document.getElementById("formulario")
+    formulario = document.querySelector("formulario")
     
 
     formulario.onsubmit = function(event){
         
-        let name = document.getElementById("name");
+        let firstname = document.getElementById("firstname");
         let email = document.getElementById("email");
         let password = document.getElementById("password");
        
@@ -32,7 +32,7 @@ window.onload = () => {
 
         if(password.value.length < 6){
             
-            invalidPassword.innerHTML = "El Password debe tener 8 caracteres como minimo"
+            invalidPassword.innerHTML = "El Password debe tener 4 caracteres como minimo"
             event.preventDefault();
         }
         

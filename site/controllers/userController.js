@@ -7,127 +7,110 @@ const bcryptjs = require('bcryptjs');
 let userController={
    
     register: function(req,res){
-        res.render('register',{usuario: req.session.user} )    
+        res.render('register', {errors : {} ,body : {} } )    
     },
 
   
 
     login: function(req,res){
-        res.render('login',{usuario: req.session.user} )
+        res.render('login',)
     },
 
 processLogin:function (req,res) {
-            console.log(validationResult(req));
+    let users = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,}
+    errors = validationResult(req); 
+    console.log(errors)
+       if(errors.isEmpty() ){
 
-            let errors= validationResult(req);
+           db.User.findOne({
+               where: {
+                   email: req.body.email
+               }
+           }).then( user => {
+               console.log(user.password);
+               console.log(req.body.password)
+               if(bcrypt.compareSync(req.body.password, user.password)){
+                   let userId = user.id;
+                   if(req.body.recordame) {
+                       //por 15 minutos
+                       res.cookie('user', userId, { expires: new Date(Date.now() + 90000000)});                     
+                   }       
+                   req.session.logueado = true;
+                   req.session.user = user.id;
+                   res.locals.logueado = true;
+                   res.locals.user = user.id;
 
-        if (errors.isEmpty()){
+                   if (user.admin) {
+                       req.session.admin = true;
+                       res.locals.admin = true;
+                   }
 
-            db.User.findOne({
-                where: {
-                    email: req.body.email
-                }
-            }).then( user => {
-               
-                if(bcrypt.compareSync(req.body.password, user.password)){
-                    // let userId = user.id;
-                    // if(req.body.recordame) {
-                      
-                    //     res.cookie('user', userId, { expires: new Date(Date.now() + 10000000)});                     
-                    // }       
-                    // req.session.logueado = true;
-                    // req.session.user = user.id;
-                    // res.locals.logueado = true;
-                    // res.locals.user = user.id;
-                    
-                    
-                }
-                res.redirect('/',{usuario: req.session.user} )
-                // res.send('paso por aqui')
-                // }).catch((error) => {
-                //     console.error(error);
-                //     return res.redirect('users/login');
-                 })
+                   return res.redirect('/');
+               }
+               res.send('paso por aqui')
+           }).catch((error) => {
+               console.error(error);
+               return res.redirect('login');
+           })
 
-            } else{
-                return res.render('login',{errors: errors.errors},{usuario: req.session.user} ) 
-                    }
-            
-           
-        },
+       } else {
+        
+           return res.render('perfil', {users:users});
 
+       }
 
-//       let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
-//   let usuarios;
-  
-//   if(archivoUser== "") {
-//        usuarios=[]; 
-      
-//   }else{
-//       usuarios = JSON.parse(archivoUser)
+   },
 
-//               }  let usuariosAlogearse;
-//               for (let i = 0; i < usuarios.length; i++) {
-//                   if( req.body.email==usuarios[i].email &&  bcrypt.compareSync(req.body.password, usuarios[i].password)){
-                    
-                   
-//                      usuariosAlogearse  = usuarios[i];
-                
-
-//                     res.send("login correcto")
-//                   }
-                  
-//               }
-//               if(usuariosAlogearse== undefined)
-//               return res.render('login',{errors:[
-//                   {msg: 'credenciales inavalidas'}
-
-//               ]}) 
-//               req.session.usuarios= usuariosAlogearse;
-//               if(req.body.remember != undefined){
-//                   res.cookie ('remember',usuariosAlogearse.email,{maxAge:60000})
-//               }
-
-
-userList:function(req,res){},
-
+userList:function (req,res ){
+                db.User.findAll()
+                    .then(function(users){
+                        res.render("userlist",{users:users})
+                    })
+                },
 createUser: function (req,res,next){
+    let errors = validationResult(req);
     
-        let usuario = {
+    if(errors.isEmpty()) { 
+         let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password:  bcrypt.hashSync(req.body.password, 8),
+            password:  bcryptjs.hashSync(req.body.password, 8),
           
          
         }
-        let errors = validationResult(req);
+        // let errors = validationResult(req);
             
-            if(errors.isEmpty()) {                  
-                usuario = {
-                 name : req.body.name,
-                 email : req.body.email,
-                 password : bcrypt.hashSync(req.body.password, 8),
+        //     if(errors.isEmpty()) {                  
+        //         usuario = {
+        //          name : req.body.name,
+        //          email : req.body.email,
+        //          password : bcrypt.hashSync(req.body.password, 8),
                  
-             }
+        //      }
 
         db.User.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            password: bcrypt.hashSync(req.body.password, 8),
+            password: bcryptjs.hashSync(req.body.password, 8),
             avatar: req.body.avatar,
             categorys_id: 1,
             marcas_id: 1
         });
-        req.session.logeado=true
-        res.redirect('/',{usuario: req.session.user} )
+     
     }else {
         console.log(errors.mapped())
         return res.render ("register", {errors: errors.mapped() , body : req.body}  )
     }
+  
+    res.redirect('/') 
+},
 
-    },
+    // },
 //   let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
 //     let usuarios;
 //     if(archivoUser== "") {
@@ -172,7 +155,86 @@ createUser: function (req,res,next){
 
 
 //guardarla
+perfil : async (req, res) => {
+
+    db.User.findByPk(req.params.id,{
+        //  include:[{association:'Cartegory'},{association:'Marca'}]
+    })
+        .then(function(users){
+           
+            res.render('perfil',{users:users})
+        })
+    },
+
+
+detallePerfil:function (req,res ){
+    db.User.findByPk(req.params.id,{
+        //  include:[{association:'Cartegory'},{association:'Marca'}]
+    })
+        .then(function(users){
+           
+            res.render('detallePerfil',{users:users})
+        })
+    },
+
     
+    editPerfil:function(req,res){
+        let users = req.params.id;
+        db.User.findByPk(req.params.id)
+        
+        .then(function(users){
+          
+           res.render('editPerfil',{users:users})
+       })
+ 
+ 
+      
+       // console.log(errors);
+
+        // if (!errors.isEmpty()) {
+           
+        //     db.User.findByPk(req.params.id)
+        //     .then(function(producto){
+        //     //   db.Marca.findAll().
+        //     //             then(function(marcas){
+        //     //                 res.render("editarProducto", {producto, marcas, errors: errors.errors});
+        //     //             })
+                  
+        //     })
+        //         } else {
+
+      
+    },
+
+
+    
+   actualizarPerfil:function(req,res){
+     
+    db.User.update({
+        firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email:req.body.email,
+            password: bcrypt.hashSync(req.body.password, 8),
+            avatar: req.body.avatar,
+            categorys_id: 1,
+            marcas_id: 1
+    }, {
+        where:{
+            id: req.params.id
+        }
+
+    });
+    res.redirect("/user/" + req.params.id)
+   },
+
+    deletePerfil:function(req,res){
+        db.User.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        res.redirect('/')
+    },
        
 }
 

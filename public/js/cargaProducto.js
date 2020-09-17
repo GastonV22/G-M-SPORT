@@ -1,76 +1,33 @@
-window.onload = () => {
-    
-    let submit = document.querySelector("#submit");
-    let reset = document.querySelector("#reset");
-    let formCarga = document.querySelector("#formCarga");
+window.addEventListener('load', () => {
 
+    let formulario = document.querySelector('.form-create');
 
-        // reset.onclick = function(event){
-        // var confirmacion = confirm("Desea borrar todo? ")    
-        //     if(!confirmacion){
-        //         event.preventDefault();
-        //     }
+    formulario.addEventListener('submit', e => {
 
-        // }
+        let name = document.querySelector('#name');
 
-        formulario.onsubmit = function(event){
-
-            let nombre = formCarga.querySelector("#nombre");
-            let marca = formCarga.querySelector("#marca");
-            let descripcion = formCarga.querySelector("#descripcion");            
-            let stock = formCarga.querySelector("#stock");
-            let precio = formCarga.querySelector("#precio");
-           
-           
-           
-           
-            if(nombre.value.length<5){
-                formCarga.querySelector("#errorNombre").innerText= "Debes completar el nombre";
-                nombre.style.backgroundColor="#FF655D";
-                event.preventDefault();
-            };
-            if(!marca.value){
-                formCarga.querySelector("#errorMarca").innerText= "Debes seleccionar un marca";
-                genre.style.backgroundColor="#FF655D";
-                event.preventDefault();
-            };
-            if(descripcion.value.length<50){
-                formCarga.querySelector("#errorDescripcion").innerText= "La descripcion debe tener al menos 50 caracteres";
-                descripcion.style.backgroundColor="#FF655D";
-                event.preventDefault();
-            };
-            if(!stock.value){
-                formCarga.querySelector("#errorStock").innerText= "Debes completar el stock";
-                stock.style.backgroundColor="#FF655D";
-                event.preventDefault();
-            };
-            
-      
-      
-            if(!precio.value){
-                formCarga.querySelector("#errorPrecio").innerText= "Debes completar el precio";
-                precio.style.backgroundColor="#FF655D";
-                event.preventDefault();
-            };
-       
-            
-           
-
-            
-            if( /\.(jpe?g|png|gif)$/i.test(adjuntarimagen.files[0].name) === false ){ 
-                formCarga.querySelector("#erroradjuntarimagen").innerText= "los formatos admitidos son jpg. png. jpeg.";
-                adjuntarimagen.style.backgroundColor="#FF655D";
-                event.preventDefault();
-              
-            };
-
-            
-
-
-
-
-
+        if (name.value.length < 3) {
+            e.preventDefault();
+            let nombreError = name.parentElement.querySelector('.errors');
+            nombreError.innerText = 'El nombre debe tener al menos 4 caracteres'
         }
 
+        let precio = document.querySelector('#precio');
 
-}
+        if (!precio.value) {
+            e.preventDefault();
+            let marcaError = precio.parentElement.querySelector('.errors');
+            precioError.innerText = 'Debe agregar el precio'
+        }
+
+        let marca = document.querySelector('#marca');
+
+        if (marca.value.length < 20) {
+            e.preventDefault();
+            let marcaError = marca.parentElement.querySelector('.errors');
+            marcaError.innerText = 'Debe agregar la Marca'
+        }
+
+    })
+
+})

@@ -49,7 +49,7 @@ let productcontroller={
             .then(function(product){
                 db.Marca.findAll().
                 then(function(marcas){
-                    res.render("cargaProducto", {marcas, product, body: req.body, errors: errors.errors});
+                    res.render("create", {marcas, product, body: req.body, errors: errors.errors});
                 })
             })
             } else {

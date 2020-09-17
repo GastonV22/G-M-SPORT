@@ -28,52 +28,50 @@ var storage = multer.diskStorage({
 
 //GET users listing. 
 
-router.get('/register',guestMdw ,userController.register);
+router.get('/register',userController.register);
 
-router.post('/register', upload.any(),userController.createUser);
+router.post('/register', upload.any(),[
+  check("firstname").isLength({ min: 1 }).withMessage("El Nombre no puede estar vacio"),
+  check("email").isLength({ min: 1 }).withMessage("El Email no puede estar vacio"),
+  check("password").isLength({ min: 1 }).withMessage("El Password no puede estar vacio"),
+  
+   //validacion de email por BD
+   ],userController.createUser);
 
-router.get('/login',guestMdw ,userController.login);
+router.get('/userlist',userController.userList);
+
+router.get('/login',userController.login);
 
 router.post('/login',[
-
-  check('password', 'La contraseña debe tener al menos 4 caracteres').isLength({min:6}).bail(),
-  check('email', 'Email invalido').isEmail().custom((value, { req }) => {
-      return db.User.findOne({where :{email : value}}).then(user => {
-          if (user == null) {
-              return Promise.reject('Credenciales invalidas');
-          } else if (user && !bcryptjs.compareSync(req.body.password , user.password)) {
-              return Promise.reject('Credenciales invalidas');
-          }
-      })
-  }),
-   
-
+ 
+  check("password").isLength({min:4}).withMessage("El password debe tener 6 caracteres como mínimo"),
+  check("usuario").custom((value, {req}) => {
+    return db.Users.findOne({where:{name : value}}).then(user => {
+      
+      if (user== null) {
+        return Promise.reject("Usuario invalido");
+      } else if (user && !bcrypt.compareSync(req.body.password , user.password)) {
+          return Promise.reject("Password incorrecto");
+      }
+    })
+  })
 ], userController.processLogin);
 
 
-//   check('email'). isEmail().withMessage('El email debe ser valido '),
-//   check('password').isLength({mim:7}).withMessage('Este campo debe contener un minimo de 7 caracteres '),
-// body ('email').custom(function(value){
-//   let archivoUser= fs.readFileSync('data/user.JSON', {encoding:'utf-8'});
-//   let usuarios;
-//   if(archivoUser== "") {
-//        usuarios=[]; 
-      
-//   }else{
-//       usuarios = JSON.parse(archivoUser)
-//     }
-//               for (let i= 0;i<usuarios.length; i ++){
-//                 if(usuarios[i].email== value){
-//                   return true;
-//                  }
-//               }
-//               return false;
 
-// }). withMessage('usuario no esta logueado ')
-// ],userController. processLogin);
+router.get("/perfil", userController.perfil );
 
- 
-router.post('/login',userController.userList);
+router.get('perfil/:id',userController.detallePerfil);
+router.get('/:id',userController.detallePerfil);
+
+router.get('/editPerfil/:id',userController.editPerfil);
+
+router.put('/editPerfil/:id',upload.any(), [
+  check('name').isLength({min:5}).withMessage('Debes escribir un nombre'),
+  check('email').isEmail().withMessage('El email debe ser un email valido')],userController.actualizarPerfil)
+
+router.post('/deleteUser/:id',userController.deletePerfil);
+
 
 
 

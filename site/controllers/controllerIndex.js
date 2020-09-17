@@ -11,11 +11,11 @@ let controllerIndex={
     
     error: function(req,res,  ){
         res.render('error')
-        ;next();
+        
     },
     faq: function(req,res, ){
         res.render('faq') 
-        ;next();
+       
     },
 
 }

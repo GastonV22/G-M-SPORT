@@ -6,7 +6,7 @@ window.onload = () => {
 
     formulario.onsubmit = function(event){
 
-            let nombre = formCarga.querySelector("#nombre");
+            let name = formCarga.querySelector("#name");
             let marca = formCarga.querySelector("#marca");
             let descripcion = formCarga.querySelector("#descripcion");            
             let stock = formCarga.querySelector("#stock");
@@ -16,7 +16,7 @@ window.onload = () => {
            
            
             if(nombre.value.length<5){
-                formCarga.querySelector("#errorNombre").innerText= "Debes completar el nombre";
+                formCarga.querySelector("#errorName").innerText= "Debes completar el name";
                 nombre.style.backgroundColor="#FF655D";
                 event.preventDefault();
             };
