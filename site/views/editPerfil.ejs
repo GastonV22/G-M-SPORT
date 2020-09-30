@@ -30,11 +30,19 @@
     -->
            <form class="formulario" action="/user/editPerfil/<%=users.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
             <h2>EDITAR PERFIL</h2>
+            <div class="input-contenedor"></div>
             <h1>Hola <%=users.firstname%></h1>
-           <input type="text"name ="firstname" placeholder="firstname"value=' <%=users.firstname%>'> 
+            <div class="input-contenedor"></div>
+            <h4>FIRSTNAME</h4>
+            <input type="text"name ="firstname" placeholder="firstname"value=' <%=users.firstname%>'>
+             <div class="input-contenedor"></div> 
+            <h4>LASTNAME</h4>
            <input type="text"name="lastname" placeholder="lastname"value=' <%=users.lastname%>'> 
+           <div class="input-contenedor"></div>
+           <h4>EMAIL</h4>
            <input type="text"name="email" placeholder="email"value=' <%=users.email%>'> 
-           <input type="text"name="password" placeholder="password"value=' <%=users.password%>'>
+           <div class="input-contenedor"></div>
+        
            
            <div class="input-contenedor"></div>
                    <i class="fas fa-envelope icon "></i>

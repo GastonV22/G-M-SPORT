@@ -8,34 +8,36 @@
         <%- include('partials/header.ejs') %>
                 
         <main>
-          <form method="POST" action="/user/register" class="formulario" enctype="multipart/form-data">
+          <form method="POST" action="/user/register" class="formulario" id="formulario" enctype="multipart/form-data">
 
           <h1>Regístrate</h1>
           
              <div class="contenedor">
                 
                 <div class="input-contenedor"></div>
-                <i class="fas fa-user icon"></i>
-                <input type="text" name="firstname" placeholder="firstname"  >
+                <i class="fas fa-user icon"></i> 
+                <input type="text" id="firstname" name="firstname"  placeholder="firstname"  >
                 <div class="invalid-feedback" id="invalidName"><%= errors.firstname ? errors.firstname.msg : ''%></div>
                 <div class="input-contenedor"></div>
                 <i class="fas fa-user icon"></i>
-                <input type="text" name="lastname" placeholder="lastname" >
-
-                
-        
+                <input type="text" id="lastname" name="lastname" placeholder="lastname" >
+                <div class="invalid-feedback" id="invalidLastName"><%= errors.lastname ? errors.lastname.msg : ''%></div>
                 <div class="input-contenedor"></div>
                 <i class="fas fa-envelope icon"></i>
-                <input type="text" name="email" placeholder="email" >
+                <input type="text" id="email" name="email" placeholder="email" >
                 <div class="invalid-feedback" id="invalidEmail"><%= errors.email ? errors.email.msg : ''%></div>
                 <div class="input-contenedor"></div>
                 <i class="fas fa-key icon"></i>
-                <input type="password" name="password" placeholder="password" >
+                <input type="password" id="password" name="password" placeholder="password" >
                 <div class="invalid-feedback" id="invalidPassword"><%= errors.password ? errors.password.msg : ''%></div>
 
-                <div class="input-contenedor"></div>
-              
-                <input class="avatar" type="file"name="avatar" placeholder="avatar"> 
+                <div class="img">
+                    <label class="" for="avatar">Avatar</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="avatar" name="avatar">
+                      <label class="custom-file-label" for="avatar">Selecciona una imagen</label>
+      
+                    </div>
                 
                 <br>
                 <input type="submit" value="Enviar" class="button">
@@ -46,7 +48,7 @@
         </div>
         <script src="/js/registroUser.js"></script>
     </form>
-      <!--JAVASCRIPT-->
+   
 
 </main>
 

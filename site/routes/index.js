@@ -3,9 +3,11 @@ const router = express.Router();
 const controllerIndex = require("../controllers/controllerIndex");
 const multer = require("multer");
 const path = require("path");
+//const sessionMdw = require ("../middlewares/sessionMdw");
 /* GET home page. */
 
 router.get('/', controllerIndex.home);
+
 
 //router.get('/', function(req,res, next){
   //res.render('index');

@@ -1,8 +1,7 @@
 window.onload = () => {
+
+    formulario = document.querySelector("form.formulario")
     
-    let submit = document.querySelector("#submit");
-    let reset = document.querySelector("#reset");
-    let formCarga = document.querySelector("#formCarga");
 
     formulario.onsubmit = function(event){
 

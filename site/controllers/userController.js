@@ -4,7 +4,9 @@ const {check, validationResult, body}= require('express-validator');
 const multer = require("multer");
 const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
+
 let userController={
+   
    
     register: function(req,res){
         res.render('register', {errors : {} ,body : {} } )    
@@ -16,7 +18,18 @@ let userController={
         res.render('login',)
     },
 
+    logout: function(req,res){
+        console.log(222)
+
+        req.session.logueado=false
+
+        res.redirect('/')
+    },
+
 processLogin:function (req,res) {
+     
+    req.session.logueado= false;
+   
     let users = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -24,32 +37,29 @@ processLogin:function (req,res) {
     errors = validationResult(req); 
     console.log(errors)
        if(errors.isEmpty() ){
-
+        console.log("222")
            db.User.findOne({
                where: {
                    email: req.body.email
                }
            }).then( user => {
-               console.log(user.password);
-               console.log(req.body.password)
-               if(bcrypt.compareSync(req.body.password, user.password)){
+               if(bcryptjs.compare(req.body.password, user.password)){
                    let userId = user.id;
                    if(req.body.recordame) {
                        //por 15 minutos
                        res.cookie('user', userId, { expires: new Date(Date.now() + 90000000)});                     
-                   }       
-                   req.session.logueado = true;
-                   req.session.user = user.id;
-                   res.locals.logueado = true;
-                   res.locals.user = user.id;
+                   }     
+                   req.session.logueado= true;
+                   req.session.user = user;
 
                    if (user.admin) {
                        req.session.admin = true;
-                       res.locals.admin = true;
                    }
 
-                   return res.redirect('/');
+                   return res.redirect('/user/' + user.id);
                }
+
+               
                res.send('paso por aqui')
            }).catch((error) => {
                console.error(error);
@@ -57,8 +67,8 @@ processLogin:function (req,res) {
            })
 
        } else {
-        
-           return res.render('perfil', {users:users});
+            return res.render('login', {errors : errors.mapped(), body : req.body});
+           //return res.render('perfil', {users:users});
 
        }
 
@@ -72,42 +82,56 @@ userList:function (req,res ){
                 },
 createUser: function (req,res,next){
     let errors = validationResult(req);
+
+    let userid;
     
     if(errors.isEmpty()) { 
          let usuario = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            password:  bcryptjs.hashSync(req.body.password, 8),
+            password:  bcryptjs.hashSync(req.body.password,4),
           
          
         }
-        // let errors = validationResult(req);
-            
-        //     if(errors.isEmpty()) {                  
-        //         usuario = {
-        //          name : req.body.name,
-        //          email : req.body.email,
-        //          password : bcrypt.hashSync(req.body.password, 8),
-                 
-        //      }
+    
 
-        db.User.create({
+            let avatar = '';
+            if (req.file)   {
+            
+                avatar = '/imgUser/' + req.file.filename;
+            } 
+              
+
+       db.User.create({
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            password: bcryptjs.hashSync(req.body.password, 8),
-            avatar: req.body.avatar,
+            password: bcryptjs.hashSync(req.body.password, 4),
+            avatar: avatar,
             categorys_id: 1,
             marcas_id: 1
+        }).then(function(user){
+          
+            req.session.logueado= true;
+            req.session.user = user;
+            userid = user.id;
+            console.log(userid)
+            
+            return res.redirect('/user/' + userid);
+
         });
-     
+
+        
+
+
     }else {
-        console.log(errors.mapped())
+        
         return res.render ("register", {errors: errors.mapped() , body : req.body}  )
     }
-  
-    res.redirect('/') 
+ 
+            
+    
 },
 
     // },
@@ -209,13 +233,20 @@ detallePerfil:function (req,res ){
 
     
    actualizarPerfil:function(req,res){
+    
+    let avatar = '';
+    if (req.file) {
+    
+        avatar = '/imgUser/' + req.file.filename;
+    }
+
      
     db.User.update({
         firstname: req.body.firstname,
             lastname: req.body.lastname,
             email:req.body.email,
-            password: bcrypt.hashSync(req.body.password, 8),
-            avatar: req.body.avatar,
+            password: bcryptjs.hashSync(req.body.password, 4),
+            avatar: avatar,
             categorys_id: 1,
             marcas_id: 1
     }, {
@@ -235,6 +266,7 @@ detallePerfil:function (req,res ){
         })
         res.redirect('/')
     },
+    
        
 }
 

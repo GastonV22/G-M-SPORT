@@ -53,14 +53,20 @@ let productcontroller={
                 })
             })
             } else {
-  
+
+                let avatar = '';
+                if (req.file) {
+                
+                    avatar = '/imgProd/' + req.file.filename;
+                }
+
     db.Product.create({
         name: req.body.name,
         marca: req.body.marca,
         precio:req.body.precio,
         stock: req.body.stock,
         descripcion: req.body.descripcion,
-        avatar: req.body.avatar,
+        avatar: avatar,
         categorys_id: 1,
         marcas_id: 1
     });
@@ -136,6 +142,13 @@ detalle:function (req,res ){
 }, 
     
    actualizar:function(req,res){
+    
+    let avatar = '';
+    if (req.file) {
+    
+        avatar = '/imgProd/' + req.file.filename;
+    }
+
      
     db.Product.update({
         name: req.body.name,
@@ -143,7 +156,7 @@ detalle:function (req,res ){
         precio:req.body.precio,
         stock: req.body.stock,
         descripcion: req.body.descripcion,
-       avatar: req.body.avatar,
+       avatar: avatar,
         categorys_id: 1,
         marcas_id: 1
     }, {

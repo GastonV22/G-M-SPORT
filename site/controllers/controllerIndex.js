@@ -1,11 +1,12 @@
 let controllerIndex={
     
-    home: function(req,res, ){
-        res.render('index',{usuario: req.session.user} )
+    home: function(req,res,next ){
+        req.session.logueado= false;
+        res.render('index')
         ;next();
     },
     carrito: function(req,res, next){
-        res.render('carrito',{usuario: req.session.user} )
+        res.render('carrito', )
         ;next();
     },
     

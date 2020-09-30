@@ -19,16 +19,17 @@
      </div>
      <nav class="menu">
     <ul><li><a href="/">Inicio</a></li>
-        <li><a href="">Calzado</a></li>
+        <li><a href="/products/list">Calzado</a></li>
         <li><a href="">Indumentaria</a></li>
         <li><a href="">Accesorio</a></li>
         <li><a href="">deportes</a></li>
         <li><a href="/faq">Contactenos</a></li>
-        <% if (locals.logeado === true) { %>
-        <li><a href="/perfil">Perfil</a></li>
+        <%  if ( locals.logueado ) { %>
+        <li><a>  <%=    locals.user.firstname  %> </a></li>
+        <li><a href="/user/logout">Logout </a></li>
         <%} else {%>
         <li><a href="/user/register">Registrese</a></li>
-        <li><a href="/user/login">Login</a></li>
+        <li><a href="/user/login">Login </a></li>
         <% } %>
     </ul>
   </nav>

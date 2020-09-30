@@ -22,10 +22,10 @@ var storage = multer.diskStorage({
 
 router.get('/create',productController.create);
 
-router.post('/create', upload.any(),[
+router.post('/create', upload.single('avatar'),[
 
   check("name").isLength({ min: 1 }).withMessage("El Nombre no puede estar vacio"),
-  check("marca").isLength({ min: 1 }).withMessage("El Marca no puede estar vacio"),
+  check("marca").isLength({ min: 1 }).withMessage("La Marca no puede estar vacio"),
   check("precio").isLength({ min: 1 }).withMessage("El Precio no puede estar vacio"),
   
    //validacion de email por BD
@@ -37,7 +37,14 @@ router.get('/:id',productController.detalle);
 
 router.get('/edit/:id',productController.edit);
 
-router.put('/edit/:id',upload.any(),productController.actualizar)
+router.put('/edit/:id',[
+
+  check("name").isLength({ min: 1 }).withMessage("El Nombre no puede estar vacio"),
+  check("marca").isLength({ min: 1 }).withMessage("La Marca no puede estar vacio"),
+  check("precio").isLength({ min: 1 }).withMessage("El Precio no puede estar vacio"),
+  
+   //validacion de email por BD
+   ],upload.single('avatar'),productController.actualizar)
 
 router.post('/delete/:id',productController.delete);
 

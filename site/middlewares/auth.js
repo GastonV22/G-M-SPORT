@@ -1,8 +1,15 @@
 module.exports = function authMdw (req, res, next) {
-
-	if (!req.session.logeado ) {
-		return res.redirect('/');
-  }
+ 
+  
+  res.locals.logueado = false;
+  
+   if(req.session.logueado) {
     
+      res.locals.logueado = true;
+      res.locals.user = req.session.user;
+   }
+
   next();  
 }
+
+

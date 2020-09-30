@@ -8,13 +8,24 @@
         <%- include('partials/header.ejs') %>
                 
         <main class="list">
-            <div><h1>Listado de producto nuevo </h1>
-            <ul > <% for (let i=0; i < productos.length; i++) { %>
-              <div class="listado"> 
-                 <li>
-                   <a href="<%=productos[i].id%>"><%=productos[i].name%></a>  </li>
-                    
-                    </div>
+            
+            <div class="create">
+                <div class="listado3"><h1>Listado de producto nuevo </h1></div>
+                 <div class="create1"> <a href="/products/create"><h2>CREATE</h2></a> </div></div> 
+         
+            <div>
+               
+               <ul > <% for (let i=0; i < productos.length; i++) { %>
+              <div class="listado">     
+                 <li class="listado2">
+
+                    <img class="img2" src="<%= productos[i].avatar %>" alt=""></li>
+                </div>
+                  
+                  <h2>  <a href="<%=productos[i].id%>"><%=productos[i].name%></a> </h2>
+                     
+                       
+                   
 
             <% } %>
 

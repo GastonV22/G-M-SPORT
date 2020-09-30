@@ -20,28 +20,30 @@
 
           <%}%>
         </div> -->
-          <form method="POST" action="/user/login"   class="formulario">
+          <form method="POST" action="/user/login"  id="formulario" class="formulario">
 
 
         <h1>Login</h1>
         <div class="contenedor">
             <div class="input-contenedor"></div>
             <i class="fas fa-envelope icon"></i>
-            <input type="text" name="email" placeholder="email">
+            <input type="email" name="email" id="email" placeholder="email">
+
             <% if (typeof errors != 'undefined') { %>
-              <div id="error-email" class="errors" > <%= errors.email ? errors.email.msg : '' %> </div>
+              <div class="invalid-feedback" id="invalidEmail"><%= errors.email ? errors.email.msg : ''%></div>
             <% } %> 
           
             <div class="input-contenedor"></div>
             <i class="fas fa-key icon"></i>
             <input type="password" name="password" placeholder="password" >
+            
             <% if (typeof errors != 'undefined') { %>
-              <div id="error-password" class="errors"><%= errors.password ? errors.password.msg : '' %> </div>
+              <div class="invalid-feedback" id="invalidPassword"><%= errors.password ? errors.password.msg : ''%></div>
             <% } %> 
             <br>
             <input type="submit" value="Login" class="button">
            
-            <input type="checkbox" name="recordar">
+            <input type="checkbox" id="recordame"  name="recordame">
             <label for="">Recordame</label>
             <p>Al registrarte, aceptas nuestras condiciones de uso y políticas de privacidad</p>
             <p>¿No tienes cuenta? <a  href="/user/perfil">
@@ -49,7 +51,9 @@
           </a></li>Regístrate</a></p>
             <p>¿Deseas volver al inicio? <a class= "link" href="/">Volver al Home</a></p>
         </div>
+        <script src="/js/login.js"></script>
     </form>
+   
 </main>
 
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
     <title>G M SPORTS</title>
     <link rel="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="../public/css/registro.css">
+    <link rel="stylesheet" href="css/registro.css">
     <script src="https://kit.fontawesome.com/ed7192d074.js" crossorigin="anonymous"></script>
     
         <%- include('partials/head.ejs') %>
@@ -16,7 +16,7 @@
         <%- include('partials/header.ejs') %>
                 
         <main class="list">
-            <div class="errors">
+            <div class="errores">
                 <% if (typeof errors != "undefined") { %>
                     <ul>
                         <% for (let i =0; i < errors.length; i++) { %>
@@ -25,17 +25,24 @@
                           </li>
                         <% } %>
                       </ul>
-                <% } %>
-              </div>
+                <% } %> 
+            
+              </div>  
    
            <form class="formulario" action="/products/edit/<%=productos.id%>?_method=PUT" method="POST"enctype="multipart/form-data">
             <h2>EDITAR PRODUCTO</h2>
             <h1><%=productos.name%></h1>
            <input type="text"name ="name" placeholder="name"value=' <%=productos.name%>'> 
+        
+
            <input type="text"name="marca" placeholder="marca"value=' <%=productos.marca%>'> 
+
            <input type="text"name="descripcion" placeholder="descripcion"value=' <%=productos.descripcion%>'> 
+
            <input type="text"name="stock" placeholder="stock"value=' <%=productos.stock%>'>
+
            <input type="text"name="precio" placeholder="precio"value=' <%=productos.precio%>'>
+
            <div class="input-contenedor"></div>
                    <i class="fas fa-envelope icon "></i>
                    <input type="file"name="avatar" placeholder="avatar"value=' <%=productos.avatar%>'> 

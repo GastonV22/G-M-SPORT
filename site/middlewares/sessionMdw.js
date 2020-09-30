@@ -1,10 +1,12 @@
 module.exports = (req, res, next) => {
 
-    res.locals.user = null;
-    res.locals.logeado = false;
-    if (req.session.user) {
-        res.locals.logeado = true; 
+    res.locals.logueado = false;
+    //console.log(req.session.logueado);
+     if(req.session.logueado) {
+        res.locals.logueado = true;
         res.locals.user = req.session.user;
-    }
+     }
+
+     
     next();
 }
